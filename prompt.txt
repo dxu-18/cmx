@@ -1,0 +1,933 @@
+cmx CLI customized package
+
+I want to create a new custom package for managing and bridging every technical realm together into
+    one CLI command for me to do everything in the terminal. This should support both Mac and Linux
+    based systems, and each feature should require no external dependencies at all; this means any
+    dependencies we do use must be imported as files into the repository itself. The cmx CLI package
+    should be completely implemented in Rust, using optimized Rust code to make it ultra-low
+    latency. Here is a list of features I want:
+
+* A near natural language-style code to LaTeX and natural language proof-prose
+
+We need a new command:
+cmx stex new - creates an untitled .stex file, opens it in the cmx editor (see design above), which
+    later you have to name yourself to save (kind of like vim)
+cmx stex new [filename] - creates a blank filename.stex
+cmx stex check [filename.stex] - converts the .stex to a lean file with whatever script you build
+    and uses lean to check the proof. Places the lean file in the current repository
+cmx stex compile [filename.stex] [--fixed | --natural | —varied | --random (variance flags)] [--open]
+    [--pdflatex | --xelatex | --lualatex] - compiles the .stex file into a complete, final .tex
+    file, called filename.tex (which is then also compiled into a LaTeX pdf with pdfLaTeX). adding
+    the flag --open prompts the default browser to open to view the pdf through the directory path
+    in the browser. default is pdflatex compilation. the first time you run this, it generates a
+    .tex and a pdf, sharing the exact name as filename.stex, except that it is filename.tex and
+    filename.pdf. subsequent runs will just recompile into tex and pdf, not create a new tex or pdf
+    (unless the name of tex and pdf is manually changed to something else).
+
+Features:
+0- a new file type: .stex (short for steno-text or short-tex), which is compiles the near-natural
+    language written in stex DETERMINISTICALLY INTO LaTeX when compiled by cmx — no training of LLM
+    models is allowed.
+1- Example: let x = 5. Auto recognition of which part of the script is prose (“let”) and which part
+    is math ($x=5$); so this becomes Let $x = 5$. There should be a detection of which are variables 
+    and which are text based on likelihoods and largely-deterministic simple probabilities
+2- let x in integers —> auto converts to: Let $x \in \mathbb{Z}$
+3- auto-adding buffer words between abbreviated declarations, etc. Example: let x = 5, y > 4, z in Z
+    -> automatically becomes “Let $x = 5$, let $y > 4$, and let $z \in \mathbb{Z}$” in LaTeX; this
+    auto addition should have context based on what is
+4- exists x in Z such that x^20+30 choose 4 —> auto converts to: $x^{20}+\binom{30}{4}$ for some $x
+    \in \mathbb{Z}$
+5- define f: N to N via f(x) = 2x^34 + 7 —> auto converts to: Define $f: \mathbb{N} \to \mathbb{N}$
+    via $f(x) = 2x^{34}  + 7$.
+6- other non built in words are interpreted as natural language and thus are part of the sentences
+    as prose.
+7- auto checker while cmx stex is run with check, e.g. cmx stex check [file] —> the cmx auto
+    converts the proof into lean, and checks that the proof is correct
+8- auto-formatter upon compile: reformatting here entails changing up the spacing, paragraphs, etc.
+    so that we don’t have cut off text, split paragraphs, or too much blank page (this will need
+    extensive casing, so as to differentiate between one page with multiple short sections or one
+    long section spanning 2+ pages)
+9- auto detection of what common packages are needed in the output .tex file, e.g. amsmath,
+    amsfonts, amsthm, amssymb, enumerate, fullpage, changepage, tikz, graphicx, etc.
+10- auto detection of sentence boundaries, and autocapitalization and punctuation of sentences.
+    Saying “let x = 5, let y = 6, let z = 7” and “let x = 5. let y = 6. let z = 7” should be
+    different, and render in the .tex as “Let $x = 5$, let $y = 6$, and let $z = 7$” and “Let $x =
+    5$. Let $x = 6$. Let $z = 7$.” respectively
+11- an internal library of all 200,000 lean theorems, written in lean, to use for verifying the
+    proofs. If a user writes in stex “let x,y in Z, let m,n be moduli, x ==  exists k in integers
+    s.t. k == m mod n by the Chinese Remainder Theorem” — it should detect that the CRT was invoked,
+    and if cmx stex check is run, then lean should also use the CRT representation in Lean as part
+    of its proof verification process. in your library of equivalent words, you should store sets of
+    different macros for the same theorem, e.g. {CRT, Chinese Remainder Theorem, etc.} in an
+    efficient manner so that equivalent words can be caught on, even though “by the Chinese
+    Remainder Theorem” itself is counted as prose.
+12- library of thousands of words to math symbols: e.g. empty set is the \varnothing, greek letters
+    converting to the latex equivalent, union and intersect, etc.
+
+
+The stex shorthand should contain a bank of possible filler transitions and translations of stex,
+    such as these listed below. You need not incorporate all of them; in fact, you will only need a
+    finite subset of each of them:
+
+Setting up
+
+Introducing a hypothesis (assume P)
+    Suppose ·
+    Suppose that ·
+    Assume ·
+    Assume that
+Introducing an arbitrary object (universal instantiation)
+    Let ·
+    Fix ·
+    Let … be arbitrary ·
+    Let … be given ·
+    Fix an arbitrary ·
+    Given any ·
+    Start with
+Introducing a witness (existential instantiation)
+    Consider ·
+    Choose … such that ·
+    Pick … with ·
+    Let … be such that ·
+    Take some … satisfying ·
+    Select
+Defining and naming
+    Define ·
+    Set ·
+    Let … := ·
+    Denote by ·
+    Write ·
+    We write … for ·
+    Call ·
+    We say that … is … if (here “if” means “iff”) ·
+    … is called ·
+    Let … denote
+Stating the goal
+    We want to show ·
+    We must show ·
+    We need to show ·
+    We wish to prove ·
+    Our goal is to show ·
+    We aim to show ·
+    We show that ·
+    We claim that ·
+    Claim: ·
+    The claim is that ·
+    We will prove ·
+    It is required to show ·
+    To prove
+Implication (P ⇒ Q)
+Forward conditional
+    P implies Q ·
+    If P, then Q ·
+    P only if Q ·
+    Q if P ·
+    Q whenever P ·
+    Q provided (that) P ·
+    Q as long as P ·
+    Q in case P ·
+    Q given P ·
+    Q assuming P ·
+    Q on condition that P ·
+    Q as soon as P ·
+    P entails Q ·
+    P yields Q ·
+    P gives Q ·
+    P guarantees Q ·
+    P ensures Q ·
+    P forces Q ·
+    P leads to Q ·
+    P means that Q ·
+    Q follows from P ·
+    Q is a consequence of P ·
+    Q is implied by P ·
+    P ⇒ Q
+Sufficiency (P is enough for Q)
+    P is sufficient for Q ·
+    P suffices for Q ·
+    P is enough to guarantee Q ·
+    It suffices that P ·
+    Having P is enough
+Necessity (Q is required for P)
+    Q is necessary for P ·
+    Q is required for P ·
+    P requires Q ·
+    P cannot hold unless Q ·
+    Q must hold if P does ·
+    Necessarily Q ·
+    P only if Q
+Unless (Q unless P, meaning ¬P ⇒ Q)
+    unless ·
+    except when ·
+    if not ·
+    otherwise ·
+    or else
+Equivalence (P ⇔ Q)
+if and only if ·
+    iff ·
+    exactly when ·
+    precisely when ·
+    just when ·
+    just in case ·
+    when and only when ·
+    is necessary and sufficient for ·
+    is equivalent to ·
+    is tantamount to ·
+    amounts to ·
+    is the same as saying ·
+    means exactly that ·
+    characterizes ·
+    if, and conversely ·
+    and conversely ·
+    and vice versa ·
+    the following are equivalent (TFAE) ·
+    coincides with (for sets or conditions) ·
+    P ⇔ Q
+Proving the two directions(⇒) / (⇐)
+    ·
+    For/in the forward direction ·
+    For/in the reverse direction ·
+    Conversely ·
+    For the converse ·
+    For/in the other direction ·
+Drawing conclusions
+Therefore
+    Then ·
+    Thus ·
+    Hence ·
+    Therefore ·
+    So ·
+    Consequently ·
+    It follows that ·
+    This implies ·
+    This shows that ·
+    We conclude that ·
+    We deduce that ·
+    We obtain ·
+    We get ·
+    We find ·
+    We see that ·
+    This gives ·
+    This yields ·
+    As a result ·
+    Which means ·
+    Which gives ·
+    So that ·
+    ∴
+Because (justification)
+    because ·
+    since ·
+    as ·
+    for ·
+    by ·
+    due to ·
+    using ·
+    applying ·
+    from earlier ·
+    from previously ·
+    given that ·
+    by hypothesis ·
+    by assumption ·
+    by definition ·
+    by (1) ·
+    by Lemma 2 ·
+    recall that ·
+    note that
+Generalizing after an arbitrary choice
+    Since x was arbitrary ·
+    As x was arbitrary ·
+    Because ε > 0 was arbitrary ·
+    Since this holds for every ·
+    As the choice of x was arbitrary ·
+    Letting ε → 0 ·
+    Taking the infimum over all
+Summarizing and combining
+    Combining ·
+    Combining these ·
+    Putting it all together ·
+    Taken together ·
+    Altogether ·
+    In summary ·
+    To summarize ·
+    In sum ·
+    Together with ·
+    In conjunction with ·
+    Collecting terms
+Quantifiers
+For all (∀)
+    for all ·
+    for every ·
+    for each ·
+    for any ·
+    for arbitrary ·
+    given any ·
+    whenever ·
+    all ·
+    every ·
+    each ·
+    any ·
+    always ·
+    without exception ·
+    regardless of ·
+    no matter what ·
+    independent of ·
+    uniformly in ·
+    ∀
+There exists (∃)
+    there exists ·
+    there is ·
+    there are ·
+    for some ·
+    some ·
+    at least one ·
+    we can find ·
+    one can find ·
+    it is possible to find ·
+    we may choose ·
+    can be chosen ·
+    admits ·
+    has a ·
+    there must be ·
+    there is a choice of ·
+    ∃
+There exists a unique (∃!)
+    there exists a unique ·
+    there is exactly one ·
+    there is one and only one ·
+    there is a unique ·
+    is uniquely determined ·
+    is unique ·
+    at most one and at least one ·
+    ∃!
+There is no (¬∃)
+    there is no ·
+    there does not exist ·
+    no … exists ·
+    for no ·
+    none ·
+    there is no x such that ·
+    it is impossible to find ·
+    cannot be ·
+    never ·
+    ∄
+At most one (uniqueness proofs)
+    Suppose x and y both satisfy … ; then x = y ·
+    any two such … are equal ·
+    is unique if it exists ·
+    there is at most one
+Eventually (∃N ∀n ≥ N)
+    for sufficiently large n ·
+    for all large n ·
+    for n large enough ·
+    eventually ·
+    for all but finitely many ·
+    there exists N such that for all n ≥ N ·
+    ultimately ·
+    as n → ∞
+Infinitely often (∀N ∃n ≥ N)
+    infinitely often ·
+    for infinitely many n ·
+    frequently ·
+    there are arbitrarily large n with ·
+    cofinally
+Small enough
+    for sufficiently small ε ·
+    for ε small enough ·
+    for all small ε ·
+    in a neighborhood of ·
+    near ·
+    locally
+Measure and probability versions
+    almost everywhere ·
+    a.e. ·
+    almost surely ·
+    a.s. ·
+    for almost all ·
+    except on a null set ·
+    with probability one ·
+    generically
+Negation and contradiction
+Negation
+    not ·
+    it is not the case that ·
+    fails ·
+    does not hold ·
+    is false ·
+    is violated ·
+    fails to be ·
+    cannot ·
+    never ·
+    ¬
+Starting a proof by contradiction
+    Suppose for contradiction ·
+    Suppose, for the sake of contradiction ·
+    Assume to the contrary ·
+    Assume, toward a contradiction ·
+    Seeking a contradiction ·
+    Suppose not ·
+    Assume otherwise ·
+    Assume the opposite ·
+    Suppose, on the contrary ·
+    Assume, contrary to the claim ·
+    If not, then
+Reaching a contradiction
+    This is a contradiction ·
+    a contradiction ·
+    contradiction ·
+    which is absurd ·
+    which is impossible ·
+    this cannot happen ·
+    contradicting ·
+    which contradicts ·
+    contrary to ·
+    in contradiction with ·
+    violating ·
+    which is a contradiction ·
+    ⊥ 
+Closing a proof by contradiction
+    Hence our assumption was false ·
+    So the assumption must be false ·
+    Therefore the claim holds ·
+    Hence no such … exists ·
+    This contradiction proves the claim
+Contrapositive
+    We prove the contrapositive ·
+    Equivalently, we show that not Q implies not P ·
+    It suffices to show that if not Q then not P ·
+    Contrapositively ·
+    By contraposition
+Reducing and simplifying
+It suffices
+    It suffices to show ·
+    It is enough to show ·
+    It will suffice to show ·
+    We need only show ·
+    We only need to check ·
+    It remains to show ·
+    It remains only to show ·
+    We are left to show ·
+    All that remains is to show ·
+    The problem reduces to ·
+    We reduce to the case ·
+    It is sufficient to prove
+Without loss of generality
+    Without loss of generality ·
+    WLOG ·
+    We may assume ·
+    We may and do assume ·
+    By symmetry, we may assume ·
+    It is harmless to assume ·
+    There is no harm in assuming ·
+    By relabeling ·
+    After renaming ·
+    By rescaling ·
+    By translating ·
+    Replacing x by −x if necessary ·
+    Passing to a subsequence ·
+    After reordering
+Analogous arguments
+    Similarly ·
+    Likewise ·
+    Analogously ·
+    In the same way ·
+    By the same argument ·
+    By the same reasoning ·
+    The same argument shows ·
+    An identical argument shows ·
+    The proof is analogous ·
+    The other case is similar ·
+    Mutatis mutandis ·
+    By symmetry ·
+    The same holds for ·
+    The reverse inequality is proved similarly
+Trivial and vacuous cases
+    Holds trivially ·
+    Holds vacuously ·
+    Is vacuously true ·
+    and immediately…
+Cases and alternatives
+Splitting into cases
+    Case 1: ·
+    Subcase 1a: ·
+    We distinguish cases ·
+    We split into cases ·
+    We consider two cases ·
+    Two cases arise ·
+    Suppose first that ·
+    Now suppose ·
+    Next, consider ·
+    On the one hand … on the other hand ·
+    If … ; if … ·
+    Otherwise ·
+    Else ·
+    The remaining case
+Closing a case analysis
+    In either case ·
+    In both cases ·
+    In all cases ·
+    In every case ·
+    Either way ·
+    Whichever case holds ·
+    Since the cases are exhaustive
+Or (P ∨ Q)
+    or ·
+    either … or ·
+    at least one of ·
+    or else ·
+    or possibly both ·
+    unless (¬P ⇒ Q)
+Exactly one (exclusive or)
+    exactly one of ·
+    either … or … but not both ·
+    precisely one of ·
+    one and only one of
+And (P ∧ Q)
+    and ·
+    both … and ·
+    also ·
+    moreover ·
+    furthermore ·
+    in addition ·
+    additionally ·
+    as well as ·
+    besides ·
+    simultaneously ·
+    together with ·
+    likewise ·
+
+    but (logically “and,” with contrast) ·
+    yet ·
+    while ·
+    whereas ·
+    although
+
+Specializing (from general to particular)
+    In particular ·
+    As a special case ·
+    Specifically ·
+    For instance ·
+    For example ·
+    e.g. ·
+    Plugging in ·
+    Substituting
+Generalizing
+    More generally ·
+    In general ·
+    Generalizing ·
+    The same holds for any ·
+    This extends to
+Restating (same content, different words)
+    That is ·
+    i.e. ·
+    Namely ·
+    In other words ·
+    Equivalently ·
+    Meaning ·
+    Explicitly
+Induction and recursion
+Base case
+    Base case, P(0) ·
+    For the base case
+Inductive step
+    Inductive step ·
+    Induction step ·
+    Assume the result holds for n ·
+    Suppose the claim holds for all k < n ·
+    Now let n ≥ 1 ·
+    Passing from n to n + 1
+Using the hypothesis
+    By the inductive hypothesis ·
+    By the induction hypothesis ·
+    By (IH) ·
+    By induction ·
+    By strong induction ·
+    By induction on n ·
+    By an easy induction ·
+    Inductively ·
+    Proceeding inductively ·
+    Iterating ·
+    Repeating this argument ·
+    By recursion ·
+    Continuing in this way
+Obviousness and verification
+Claiming something is easy
+    Clearly ·
+    Obviously ·
+    Evidently ·
+    Plainly ·
+    Trivially ·
+    Of course ·
+    Immediately ·
+    We leave it to the reader that
+Pointing out a fact
+    Note that ·
+    Observe that ·
+    Notice that ·
+    Recall that ·
+    We note that ·
+    It is worth noting that ·
+    Keep in mind that
+Computation
+    We have ·
+    We compute ·
+    We get ·
+    Expanding ·
+    Rearranging ·
+    Simplifying ·
+    Collecting terms ·
+    Substituting ·
+    Differentiating ·
+    Integrating ·
+    So that
+Well-definedness
+    is well-defined ·
+    does not depend on the choice of ·
+    is independent of the representative ·
+    is independent of ·
+    is unambiguous
+Bounds and comparisons
+Upper bound (≤)
+    at most ·
+    no more than ·
+    not exceeding ·
+    not greater than ·
+    bounded above by
+Lower bound (≥)
+    at least ·
+    no less than ·
+    not smaller than ·
+    bounded below by
+Strict
+    strictly ·
+    strictly less than ·
+    strictly greater than ·
+    properly (for inclusions)
+Exact
+    exactly ·
+    precisely ·
+    equivalent to
+Proof structure and closing
+Signposting
+    First, we show ·
+    We begin by ·
+    We start with ·
+    Next ·
+    Now ·
+    Then ·
+    Finally ·
+    We proceed with (e.g., induction on n >= 1)
+Labels for statements
+    Proof ·
+    Claim ·
+    Lemma ·
+    Proposition ·
+    Theorem ·
+    Corollary ·
+    Observation ·
+    Remark ·
+    Fact ·
+    Sublemma ·
+    Aside
+End of proof
+    This proves that ·
+    as desired ·
+    as required ·
+    and we are done ·
+    we are done ·
+    Hence the result
+
+Anyway, adding flags --fixed | --natural | --varied | --random, which are variance flags, signals to
+    the .stex to .tex compiler HOW varied the prose is. Fixed is little no variance in prose, with
+    nearly 95% of prose predictable, using very common prose and the same transition, e.g. Let…
+    Then, it follows that, this implies… etc. Natural would use a more diverse set of prose options;
+    leaning towards a distribution of phrases that make a proof sound naturally. You may need to
+    analyze a lot of mathematical proofs you find online to create a frequency table of what
+    transitions are most common. Varied would increase the diversity of phrases used, and random
+    would be purely random.
+
+Onto the actual syntax/features of stex:
+wts: invokes prose for the claim, e.g. wts x = 5 yields prose like "We show that ..."
+let: invokes prose equivalent to let, fix, let _ be arbitrary, etc…
+assume: invokes prose equivalent to suppose, suppose that, assume, assume that, etc.
+afsoc or aftsoc: invokes prose equivalent to “Assume for the sake of contradiction”
+contradition: invokes prose equivalent to ""
+then/implies: invokes prose equivalent to then, it follows that, this implies (see above for more
+    equivalents), or logical implies symbol when used inside $$
+and, &&: just a logical and, and the symbol for logical and symbol when used inside $$
+or, ||: representing a disjunction in the prose, or logical or symbol when used inside $$
+    Note: absolute value, cardinality, and magnitude are represented only when there is at least one
+    character between the two pipes ||
+not, !: representing the negation of the prose, or logical not symbol when used inside $$. Should be
+    able to be used anywhere in a claim: e.g. let not x = 5 or let x not = 5 or let x not equals 5
+    or let x neq 5 should result in the same thing: Let $x \neq 5$.
+    Note: ! with a number in front of it acts as a factorial, not a not. ! has to be concatenated directly
+          in front of an expression, such as !=, !==, !x = 5. By itself or near prose, ! acts as the textual
+          exclamation mark!
+xor, ^^: representing either-or in the prose, or logical xor symbol when used inside $$
+nand, !&&: same idea as above
+nor, !||: same idea as above
+
+iff: invokes prose equivalent to if and only if, precisely when, exactly when, etc.; or logical \iff when used inside $$
+
+exists x, P(x): invokes prose equivalent to "There exists $x$ such that $P(x)$." (default) or "We have $P(x)$ for some $x$." or
+                plenty of other equivalents, depending on the variation level (the variation flag), or the existential quantifier 
+                (backwards E) when used in $$. In the --natural prose variation level, the two mentioned variations hold equal weight.
+    equivalent syntax: come up with a list of equivalent stex syntax that works for exists, that is near exhaustive, e.g.
+    there exists x, P(x); exists x such that P(x); exists x st P(x); exists x s.t. P(x), ..., and many more.
+
+for every x, P(x): invokes prose equivalent to "For every(default)/all/each $x$, $P(x)$" (default) or "We have $P(x)$ for all $x$."
+                  and plenty of equivalents. This also depends on the variation level (if fixed, we always use default.) In the 
+                  --natural prose variation level, the two mentioned variations hold equal weight.
+    equivalent syntax: come up with a list of equivalent stex syntax that works for "for every", that is near exhaustive, e.g.
+    for all x, P(x); for every, x P(x); for each x P(x) (no comma), ..., and many more.
+
+=: yields $=$, ex. x = 5 yields $x = 5$
+==: yield $\equiv$, ex. x == 5 mod 6 yields $x=$
+
+mod n: yields $\pmod{n}$ (detects an \equiv nearby), or $\bmod$
+%: yields $\bmod$ or $\%$ if a number preceeds it
+    ex. 5% % 6% yields $5\% \bmod{}$
+
+sqrt: yields \sqrt{}
+nrt: yields \sqrt[n]{}
+    ex. 3rt(5) yields \sqrt[3]{5}
+        7rt 6 yields \sqrt[7]{6}
+
+*/dot: yields \cdot
+cross: yields \times
+
+/ or over: yields \frac{a}{b}
+    Note: parse divides like normal text PEMDAS; a+b/c yields a + \frac{b}{c}, but (a+b)/c yields \frac{a+b}{c}.
+    Let parentheses clarify.
+
+
+
+b/c / because/since/by (either prose or an expression, not a theorem): invokes prose equivalent to because/since/due to/ as a result, etc.
+        In --fixed, explicitly use either one of them exactly. In natural, extend to other synonyms like "due to" or 
+        "as a result of", etc. This reasoning is prose and is ignored by lean when you run cmx stex check
+
+by (Theorem/Axiom/Lemma/assumption): invokes prose invoking the theorem depending on where it is placed syntactically; i.e.,
+    by CRT k == a mod m and k == b mod n
+    yields: "By the Chinese Remainder Theorem, $k \equiv a \pmod{m}$ and $k \equiv b \pmod{n}$."
+
+    conversely, k == a mod m and k == b mod n by CRT
+    yields: "$k \equiv a \pmod{m}$ and $k \equiv b \pmod{n}$ by the Chinese Remainder Theorem", or "We have ... by the Chinese Remainder Theorem." or something like that
+    
+    This adds this theorem to be checked by lean when you run cmx stex check. If by is called, IF we can detect a theorem or a theorem abbreviation, 
+    then it has the special property of being added to the lean check during proof verification.
+
+by inside $$: can be used to add tags in the \begin{align}, for reasoning
+    ex. $
+            x^2 = 9 implies x^2 - 9 = 0 by subtraction, implies (x+3)(x-3) = 0 by factoring, implies x = 3 or x - 3 by simplifying
+        $
+    yields:
+        \begin{align}
+            x^2 = 9 &\implies x^2 - 9 = 0 \tag*{subtraction}\\
+                    &\implies (x + 3)(x - 3) = 0 \tag*{factoring}\\
+                    &\implies x = 3 \lor x = -3 \tag*{simplifying}\\
+        \end{align}
+
+w/, with: expands to "with" in prose
+    ex. let x in integers w/ x > 5, this yields: Let $x \in \mathbb{Z}$ with $x > 5$.
+
+proof: calls \textit{Proof.} to start the proof.
+claim: equivalent to above
+lemma
+proposition
+theorem
+corollary
+observation
+remark
+fact
+sublemma
+aside: all equivalent to above
+
+i.e./ie/i.e/ie. (some expression): invokes prose equivalent to $That is, (expression)$ or "In other words, (the expression)" (again, see the extensive list
+                                   above to generate your bank of more options)
+
+qed: constructs prose from the claim made earlier through wts, and makes a little qed square; ex.
+    wts x = 5 
+    qed
+
+    yields: 
+    We show that $x = 5$.
+    ... // rest of proof
+    Hence $x = 5$ as required.
+    
+qed (custom claim): invokes the end
+
+$$: inside an align or a math symbol section (double $$$$) that purely involves logic and mathematical 
+    expressions. typing above keywords into $$ forces purely math symbols. other words in $$ that aren’t 
+    a keyword gets wrapped in \text{}. Ex. $exists x such that x = 5y$ necessarily becomes 
+    $\exists x, \; x = 5y$ in the resulting .tex
+    Note: IF it is a long chain of implies or equals or biimplicationals, prefer \begin{align}; but if it is a short
+    chain or just a singular equation, prefer $$expression$$. The criteria is whether it fits cleanly in 1 line to
+    prefer one over the other.
+
+*A: calls \mathbb{A}
+&A: calls \mathcal{A}
+~A: calls \mathscr{A}
+#A: calls \mathtt{A}
+@A: calls \mathfrak{A}
+
+integers: equivalent to \mathbb{Z} in LaTeX
+reals/real numbers, naturals/natural numbers, complex numbers, field
+
+_prose: forces capitalization of that specific word in the prose, even if it's not at the start of the sentence
+__prose: forces all caps for that specific word
+
+bold { forces everything inside to be bold }
+    yields: \textbf{}
+    alternative syntax: bf{}, bf {}, space in the middle shouldn't matter
+
+italic { forces everything itse}
+    yields: \textit{}
+    alternative syntax: it{}, it {}, etc.
+
+underline { forced everything to be underlined }
+    yields: \underline{}
+    alternative syntax: ul {}, ul{}, etc.
+
+bold/italic/underline word: the one word immediately following becomes boldened, italicized, underlined
+
+latex { can type in latex here directly for single $$ in latex}
+    ex. latex {\exists} yields $\exists$
+
+case: allows for casing
+Example: case 1 x = 5:
+         then ...
+         case 2 x != 5
+         then ...
+         
+    yields: \begin{itemize}
+                \item Case 1: Suppose $x = 5$.
+                \item Case 2: Suppose $x \neq 5$. 
+            \end{itemize}
+
+thousands of actual words to symbols: empty set; greek letters like alpha, beta, theta, lambda,
+    delta, epsilon, ..., union, intersect/intersection, setminus/setdiff, symmdiff/symmetrical difference, 
+    comp/complement, sum, integral, derivative, limit, etc.
+    Note: WHEN the words are compiled to symbols depends on the CONTEXT of the prose around it. For example,
+    if a user writes in stex: empty set = empty set, or let A = empty set, then it's obvious the result should
+    be 
+
+-(keyword): defaults the keyword back to prose. e.g. exists --> literally type 
+
+Some examples of more complicated natural language to LaTeX:
+Ex 1. let x in integers s.t. sum from i=1 to 4 = 30. 
+    yields: Let $x \in \mathbb{Z}$ such that $\sum_{i=1}^4 = 30$.
+    needs: some sort of way to distinguish between the two =s
+    note: using $sum from i=1 to 4 = 30$ should guarantee the entire section is in math mode $$ in LaTeX as well,
+          but for an explicit description like this, stex should also predictably generate the math mode in $$ anyways
+
+Ex 2. integrate f(x) from 1 to pi
+    yields: $\int_1^{\pi} f(x) dx$
+
+Ex 3. integral 1 to pi of f(x) dx
+    yields: $\int_1^{\pi} f(x) dx$
+    note: note that there are multiple natural ways in natural english to say integral from x to y of f(z) dz, so you
+          must account for flexible syntax for these custom math structures/objects, like integrals, derivatives, limits, 
+          sums, products, etc. something like "integral 1 to pi of f(x) dx" could be rewritten as "integral from 1 to pi of f(x) dx" 
+          or "integrate f(x) from 1 to pi" and in so many different ways, so find out an efficient way to implement this.
+
+note that a lot of these are not unique symbols; s.t., st,
+    s.t, st., such that, or even something in the form “let x in Z, sum from i = 1 to 4 = 30” — they
+    are all valid forms for the phrase “such that.” You need to come up with an efficient way to parse a lot of syntactic variations
+    (though admittedly not every possible English phrase, of course, just the common variations in mathematical English)
+
+* New text editor/ IDE built-into terminal, more advanced features than vim
+
+cmx edit: opens a blank untitled file, just as how running vim opens a blank, unsaved file as well.
+cmx workspace: opens the workspace (current directory) with the file management tracker on the left and terminal already opened.
+        no default file should be opened, so the main text editor should just say "Open a file to begin" or something like that
+
+Features:
+1- based on vim features on what the interface looks like. has normal keybinds as vscode, ability to
+    drag text over terminal to highlight text, Ctrl+click to highlight to current cursor, delete selected text, 
+    move from , undo with Ctrl+Z (command+Z on Mac), redo with Ctrl+Shift+Z, copy paste with Ctrl+C and Ctrl+V, 
+    cut with Ctrl+X, select all with Ctrl+A, using arrow keys to move, ctrl+arrow key movements, other standard 
+    text editor keys (and their Mac equivalents). Ability to switch to using vim keys using Ctrl+K (or Cmd+K), 
+    since <C-K> is not binded on Vim, and back with another ctrl+K
+2- file management system on left to see current directory. Open in non-vim (default mode) by Ctrl+Shift+L (or Cmd on Mac). ability
+    to click on the file management system to choose what files to work on, similar to in VSCode. once the left is in focus, then
+    pressing up and down does not mess with the text, but rather allows you to switch files through the file list PREV and NEXT 
+3- claude option on the right. This is done if claude-cli is installed on the shell, opened by Ctrl+Shift+R (or Cmd) -- so the cmx
+    automatically calls claude when it's opening that split terminal tab anyways
+4- default terminal shell at the bottom, when Ctrl+Shift+Y is called (or Cmd), to open the shell in the current directory
+5- tab based code editor in the center; this is the main thing
+6- implement natural split terminal adjustment, and ability to click between to splits to manually resize splits (just like in VScode) 
+
+
+LATER SECTIONS TO IMPLEMENT, just keep in mind for now:
+
+
+*Automatic email/message drafter and sender
+
+cmx link [email@website.com] (if 2FA is enabled, the terminal should output instructions to the user
+    on how to handle that)
+cmx link [email@website.com | username/ID] [--discord | --instagram]
+cmx logout [--discord | --instagram]
+cmx draft [filename.txt]
+cmx send [filename.txt] [email address of recipient] [time]
+cmx send [filename.txt]
+cmx send "" [--discord | --instagram] (sends a text to discord or instagram instantly, if logged in)
+
+1- Ability to connect email and phone number (cmx send should not work before then) - cmx link
+    should support gmail, iCloud, yahoo, and outlook
+2- Various templates for most common occasions
+3- casual, polite, formal variants for each template (default polite)
+4- ability to add custom templates (no casual/polite/formal modes)
+5- cmx send should be designed to ALWAYS schedule send. if no time is specified, cmx send will
+    schedule send in 5 minutes by default. Adding a flag --override (e.g., cmx send —override)
+    should override the schedule send and send immediately
+6- Ability to also connect various social media/DM platforms, but ONLY use their DMs: instagram and
+    discord for now. We’ll add additional features for each specific one later
+
+* Unified repo/homework/resume initializer
+
+cmx link [email@website.com] --github (link GitHub to your cmx)
+cmx new [repo/homework/resume]
+cmx resume - edits your current resume/CV hosted on your website.
+
+Features:
+1- use the Jake's resume template: https://github.com/jakegut/resume for the resume template
+2- use the CMU hw template: https://github.com/jez/cmu-latex-hw-template
+3- i have no clue for the repo yet, we'll see later
+4-
+
+* Deterministic partial natural language to code system
+We need a new command, cmx code, such that
+
+Features:
+1- Should support converting the same syntax to Python, C++, Java, C, Rust, and assembly code
+2- Massive built-in bank of data structures, both specific and generic, including binarysearch that
+    can be freely used
+
+more on this later
+
+* Massive template bank for different Claude/LLM tasks
+
+more on this later
+
+* Unified templates for creating and managing your personal website on github
+
+Features:
+1- instantating the git repo to post git website
+2- automatic hosting of resume and stuff
+3- library containing all the 14 github website templates directly
+4- more on this later
+
+
+As of this session, we primarily only need to be focusing on implementing the cmx editor/IDE first, 
+then complete the stex language portion. before we do anything, I need you to create multiple .mds
+for you to keep track of session context, research, log progress, and design, each of which are marked
+as temporary files to be removed later on. These files will be removed once I say so, but you should
+not remove them yourself (except you can edit them if there are design changes to be made). CONTEXT.md,
+RESEARCH.md, LOGS.md, (whatever topic)-DESIGN.md should all be files you will be constantly editing and restoring
+information from, in a folder called claude/, which is important for you to stay in context over many sessions
+on what is the current progress. Design this tracking system yourself so that it is most optimized.
+(example -DESIGN.md docs: EDITOR-DESIGN.md, STEX-DESIGN.md, etc.). You can create the design docs for the 
+other unfinished, brainstormed ideas as well, but just note that they aren't fully fleshed-out yet. Get
+your progress tracking system set up first.
+
+After this, start by implementing the editor/IDE fully.
