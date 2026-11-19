@@ -1,0 +1,3 @@
+// sigils *A &A ~A #A @A
+let *N denote the natural numbers and &F a family of sets.
+we also use ~A for a sigma-algebra, #x for a code word and @g for a Lie algebra.

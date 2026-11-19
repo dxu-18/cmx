@@ -1,0 +1,4 @@
+// a set of n elements has 2^n subsets, double counting
+a set of 5 elements has 2^5 = 32 subsets.
+there are 10 choose 3 = 120 three-element subsets of a ten-element set.
+summing over k gives sum from k=0 to n of (n choose k) = 2^n.

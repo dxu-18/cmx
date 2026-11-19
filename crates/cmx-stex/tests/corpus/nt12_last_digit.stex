@@ -1,0 +1,4 @@
+// mod 10, for all, with, note
+note that for all n in N, n^5 == n mod 10.
+with n = 7 we get 7^5 = 16807 == 7 mod 10.
+so the last digit of n^5 equals the last digit of n.

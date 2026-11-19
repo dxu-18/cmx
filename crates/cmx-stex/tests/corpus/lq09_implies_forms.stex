@@ -1,0 +1,4 @@
+// implies, then, if ... then
+if x > 2 then x^2 > 4.
+x > 2 implies x^2 > 4.
+x > 2 => x^2 > 4.

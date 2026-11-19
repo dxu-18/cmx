@@ -1,0 +1,4 @@
+// "we induct on n", "by induction on n", induction hypothesis
+we induct on n. the case n = 0 is clear.
+assume the statement holds for n. by the induction hypothesis it then holds for n + 1.
+hence by induction it holds for all n in N.

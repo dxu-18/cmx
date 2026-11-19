@@ -1,0 +1,5 @@
+// "a" as article vs variable
+let a be a positive real number and let b = a + 1.
+then a < b, and a number larger than a is b.
+choose a point x in the interval (a, b).
+there is a real number between a and b.

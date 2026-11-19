@@ -1,0 +1,5 @@
+// expect: ok
+let x in R. assume 2x + 3 = 7
+wts x = 2
+then 2x = 4, so x = 2
+qed

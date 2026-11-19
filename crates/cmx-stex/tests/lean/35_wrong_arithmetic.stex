@@ -1,0 +1,5 @@
+// expect: fail 4
+let x in Z. assume x = 2
+wts x + 2 = 4
+then x + 2 = 5
+qed

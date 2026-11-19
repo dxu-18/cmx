@@ -1,0 +1,6 @@
+[package]
+name = "cmx-tui"
+description = "Terminal UI toolkit for cmx: unicode width, cell buffer, diff renderer, input parser, clipboard."
+version.workspace = true
+edition.workspace = true
+publish.workspace = true

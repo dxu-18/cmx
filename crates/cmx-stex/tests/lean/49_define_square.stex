@@ -1,0 +1,5 @@
+// expect: ok
+define g: Z to Z via g(x) = x^2 - 1
+wts g(3) = 8
+then g(3) = 9 - 1 = 8
+qed

@@ -1,0 +1,3 @@
+// for all ... there exists ..., for every epsilon
+for every x in R there exists y in R such that y > x.
+however it is not the case that there exists y in R such that y > x for all x in R.

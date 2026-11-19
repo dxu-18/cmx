@@ -1,0 +1,3 @@
+// symmetric difference, symmdiff
+let A, B be sets. the symmetric difference of A and B is A symmdiff B := (A \ B) union (B \ A).
+then A symmdiff A = empty set and A symmdiff empty set = A.

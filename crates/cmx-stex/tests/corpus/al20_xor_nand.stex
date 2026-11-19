@@ -1,0 +1,5 @@
+// logic connectives: xor, ^^, nand, !&&, nor, !||, iff
+let P and Q be statements. then P xor Q holds exactly when P iff not Q.
+in symbols $P xor Q iff (P or Q) and not (P and Q)$.
+also $P nand Q iff not (P and Q)$ and $P nor Q iff not (P or Q)$.
+with the short forms, $P ^^ Q$, $P !&& Q$ and $P !|| Q$ mean the same.

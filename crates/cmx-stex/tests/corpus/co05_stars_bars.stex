@@ -1,0 +1,2 @@
+// stars and bars, number of solutions
+the number of solutions of x_1 + x_2 + x_3 = 10 in nonnegative integers is (12 choose 2) = 66 by stars and bars.

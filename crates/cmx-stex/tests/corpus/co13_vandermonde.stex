@@ -1,0 +1,2 @@
+// Vandermonde's identity
+by Vandermonde's identity, sum from k=0 to r of (m choose k)(n choose (r - k)) = (m + n) choose r.

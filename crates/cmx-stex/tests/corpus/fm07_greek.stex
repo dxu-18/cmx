@@ -1,0 +1,4 @@
+// greek letters
+let alpha, beta in R with alpha < beta. choose gamma = (alpha + beta)/2.
+then alpha < gamma < beta, and capital gamma is different from gamma.
+for every epsilon > 0 there is delta > 0 with delta < epsilon.

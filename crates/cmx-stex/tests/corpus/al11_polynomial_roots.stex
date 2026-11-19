@@ -1,0 +1,4 @@
+// degree n, a polynomial of degree, prose words that are function names
+let p be a polynomial of degree n >= 1 with real coefficients.
+then p has at most n real roots.
+if p(a) = 0 then x - a divides p(x).

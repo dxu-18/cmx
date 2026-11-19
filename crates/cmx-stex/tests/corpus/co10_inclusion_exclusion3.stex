@@ -1,0 +1,2 @@
+// |A union B union C|
+by inclusion-exclusion, |A union B union C| = |A| + |B| + |C| - |A intersect B| - |A intersect C| - |B intersect C| + |A intersect B intersect C|.

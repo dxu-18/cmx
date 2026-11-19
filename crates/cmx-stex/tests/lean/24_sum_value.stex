@@ -1,0 +1,3 @@
+// expect: ok
+wts sum from i=1 to 4 of i^2 = 30
+qed

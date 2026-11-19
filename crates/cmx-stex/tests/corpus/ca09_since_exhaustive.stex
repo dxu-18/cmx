@@ -1,0 +1,6 @@
+// "since the cases are exhaustive, P" as the closer
+let a, b be real numbers. wts max(a, b) >= (a + b)/2
+case a >= b. then max(a, b) = a = (a + a)/2 >= (a + b)/2.
+case a < b. then max(a, b) = b = (b + b)/2 > (a + b)/2.
+since the cases are exhaustive, max(a, b) >= (a + b)/2.
+qed

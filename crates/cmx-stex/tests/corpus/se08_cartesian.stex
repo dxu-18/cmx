@@ -1,0 +1,3 @@
+// cartesian product A times B, ordered pairs, |A times B|
+let A and B be finite sets. then |A times B| = |A| |B|.
+each element of A times B is an ordered pair (a, b) with a in A and b in B.

@@ -1,0 +1,4 @@
+// expect: ok
+there are 5 choose 2 = 10 ways to pick two of five items.
+a set of 5 elements has 2^5 = 32 subsets.
+there are 10 choose 3 = 120 three-element subsets of a ten-element set.

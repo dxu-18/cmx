@@ -1,0 +1,3 @@
+// derangements, sum from k=0 to n, (-1)^k
+the number of derangements of n objects is D_n = n! sum from k=0 to n of (-1)^k/k!.
+for n = 4 this gives D_4 = 9.

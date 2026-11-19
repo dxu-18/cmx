@@ -1,0 +1,768 @@
+# Source for crates/cmx-stex/data/symbols.tsv (spec feature 12: "library of thousands of words to math
+# symbols"). Expand with: `stex-corpus symbols --base symbol-base.txt > crates/cmx-stex/data/symbols.tsv`
+#
+#   kind<TAB>latex<TAB>words (|-separated)<TAB>negated latex (rel/arrow only, optional)
+#
+# A word starting with `+` is an English relation phrase and also yields "is W", "is not W" and
+# "isn't W" (the last two map to the negated latex). Kinds:
+#   greek const set   atoms               func   operator name, argument optional (`sin x`, `sin(x)`)
+#   funcp             operator name that is also an English word: math only as `rank(A)`
+#   rel arrow         relations           bin  multiplicative operator     add  additive operator
+#   setop             ∪ ∩ ∖ △ level       div  fraction ("divided by")     post  postfix (`A complement`)
+#   accent            `x hat` / `hat x` → \hat{x}          big  big operator (`bigoplus from i=1 to n`)
+# Words that are common English with a non-mathematical meaning are deliberately left out of the
+# rel/bin/arrow kinds ("between", "smile", "star" as an operator, ...).
+
+# ----------------------------------------------------------------------------- Greek & Hebrew
+greek	\alpha	alpha|α
+greek	\beta	beta|β
+greek	\gamma	gamma|γ
+greek	\Gamma	Gamma|Γ
+greek	\varGamma	varGamma
+greek	\delta	delta|δ
+greek	\Delta	Delta|Δ
+greek	\varDelta	varDelta
+greek	\varepsilon	epsilon|eps|varepsilon|ε
+greek	\epsilon	straightepsilon|ϵ
+greek	\zeta	zeta|ζ
+greek	\eta	eta|η
+greek	\theta	theta|θ
+greek	\vartheta	vartheta|ϑ
+greek	\Theta	Theta|Θ
+greek	\varTheta	varTheta
+greek	\iota	iota|ι
+greek	\kappa	kappa|κ
+greek	\varkappa	varkappa|ϰ
+greek	\lambda	lambda|lamda|λ
+greek	\Lambda	Lambda|Λ
+greek	\varLambda	varLambda
+greek	\mu	mu|μ
+greek	\nu	nu|ν
+greek	\xi	xi|ξ
+greek	\Xi	Xi|Ξ
+greek	\varXi	varXi
+greek	o	omicron|ο
+greek	\pi	π
+greek	\varpi	varpi|ϖ
+greek	\Pi	Pi|Π
+greek	\varPi	varPi
+greek	\rho	rho|ρ
+greek	\varrho	varrho|ϱ
+greek	\sigma	sigma|σ
+greek	\varsigma	varsigma|ς
+greek	\Sigma	Sigma|Σ
+greek	\varSigma	varSigma
+greek	\tau	tau|τ
+greek	\upsilon	upsilon|υ
+greek	\Upsilon	Upsilon|Υ
+greek	\varUpsilon	varUpsilon
+greek	\varphi	phi|varphi|φ
+greek	\phi	straightphi|ϕ
+greek	\Phi	Phi|Φ
+greek	\varPhi	varPhi
+greek	\chi	chi|χ
+greek	\psi	psi|ψ
+greek	\Psi	Psi|Ψ
+greek	\varPsi	varPsi
+greek	\omega	omega|ω
+greek	\Omega	Omega|Ω
+greek	\varOmega	varOmega
+greek	\digamma	digamma|ϝ
+greek	\aleph	aleph|ℵ
+greek	\beth	beth|ℶ
+greek	\gimel	gimel|ℷ
+greek	\daleth	daleth|ℸ
+
+# ----------------------------------------------------------------------------- constants
+const	\pi	pi
+const	\infty	infinity|infty|∞
+const	\varnothing	empty set|emptyset|varnothing|the empty set|null set|∅
+const	\emptyset	straightemptyset
+const	\aleph_0	aleph0|aleph_0|aleph null|aleph naught|ℵ₀
+const	\nabla	nabla|del operator|∇
+const	\partial	partial|∂
+const	\hbar	hbar|ℏ
+const	\hslash	hslash
+const	\ell	ell|ℓ
+const	\wp	wp|weierstrass p|℘
+const	\Re	Re|ℜ
+const	\Im	Im|ℑ
+const	\imath	imath|ı
+const	\jmath	jmath|ȷ
+const	\mho	mho|℧
+const	\top	top|⊤
+const	\bot	bot|⊥
+const	\angle	angle|∠
+const	\measuredangle	measuredangle|∡
+const	\sphericalangle	sphericalangle|∢
+const	\triangle	triangle
+const	\square	square|qedsymbol|□
+const	\blacksquare	blacksquare|■
+const	\lozenge	lozenge|◊
+const	\blacklozenge	blacklozenge|⧫
+const	\bigstar	bigstar|★
+const	\diamondsuit	diamondsuit|♢
+const	\heartsuit	heartsuit|♡
+const	\clubsuit	clubsuit|♣
+const	\spadesuit	spadesuit|♠
+const	\flat	flat sign|♭
+const	\natural	natural sign|♮
+const	\sharp	sharp sign|♯
+const	\Finv	Finv|Ⅎ
+const	\Game	Game|⅁
+const	\Bbbk	Bbbk|𝕜
+const	\backprime	backprime|‵
+const	\eth	eth|ð
+const	\surd	surd|√
+const	\dots	dots|…
+const	\ldots	ldots
+const	\cdots	cdots|⋯
+const	\vdots	vdots|⋮
+const	\ddots	ddots|⋱
+const	\forall	forall|∀
+const	\exists	∃
+const	\nexists	nexists|∄
+const	\neg	neg|lnot|¬
+const	\checkmark	checkmark|✓
+const	\dagger	dagger|†
+const	\ddagger	ddagger|‡
+const	\circledS	circledS|Ⓢ
+const	\maltese	maltese|✠
+const	\varphi	golden ratio
+const	i	imaginary unit
+const	e	euler's number|eulers number
+const	\gamma	euler-mascheroni constant|euler mascheroni constant
+const	\mathbf{1}	indicator|characteristic function
+
+# ----------------------------------------------------------------------------- number systems
+set	\mathbb{Z}	integers|ints|the integers|set of integers|the set of integers|ℤ
+set	\mathbb{N}	naturals|natural numbers|the naturals|the natural numbers|set of natural numbers|the set of natural numbers|ℕ
+set	\mathbb{R}	reals|real numbers|the reals|the real numbers|set of real numbers|the set of real numbers|real line|the real line|ℝ
+set	\mathbb{Q}	rationals|rational numbers|the rationals|the rational numbers|set of rational numbers|the set of rational numbers|ℚ
+set	\mathbb{C}	complexes|complex numbers|the complex numbers|set of complex numbers|the set of complex numbers|complex plane|the complex plane|ℂ
+set	\mathbb{H}	quaternions|the quaternions|ℍ
+set	\mathbb{O}	octonions|the octonions
+set	\mathbb{P}	primes|the primes|set of primes|the set of primes|ℙ
+set	\mathbb{Z}_{>0}	positive integers|the positive integers|set of positive integers|ℤ⁺
+set	\mathbb{Z}_{\geq 0}	nonnegative integers|non-negative integers|the nonnegative integers|the non-negative integers
+set	\mathbb{Z}_{<0}	negative integers|the negative integers
+set	\mathbb{R}_{>0}	positive reals|positive real numbers|the positive reals|the positive real numbers|ℝ⁺
+set	\mathbb{R}_{\geq 0}	nonnegative reals|non-negative reals|nonnegative real numbers|non-negative real numbers
+set	\mathbb{R}_{<0}	negative reals|negative real numbers
+set	\mathbb{Q}_{>0}	positive rationals|positive rational numbers
+set	\mathbb{C}^{*}	nonzero complex numbers
+set	\mathbb{R}^{*}	nonzero reals|nonzero real numbers
+set	\mathbb{Z}[i]	gaussian integers|the gaussian integers
+set	\overline{\mathbb{R}}	extended reals|extended real numbers|extended real line
+set	\mathbb{R} \setminus \mathbb{Q}	irrationals|irrational numbers|the irrationals|the irrational numbers
+set	\overline{\mathbb{Q}}	algebraic numbers|the algebraic numbers
+
+# ----------------------------------------------------------------------------- operator names
+func	\sin	sin
+func	\cos	cos
+func	\tan	tan
+func	\sec	sec
+func	\csc	csc|cosec
+func	\cot	cot
+func	\arcsin	arcsin|asin
+func	\arccos	arccos|acos
+func	\arctan	arctan|atan
+func	\operatorname{arcsec}	arcsec|asec
+func	\operatorname{arccsc}	arccsc|acsc
+func	\operatorname{arccot}	arccot|acot
+func	\sinh	sinh
+func	\cosh	cosh
+func	\tanh	tanh
+func	\coth	coth
+func	\operatorname{sech}	sech
+func	\operatorname{csch}	csch
+func	\operatorname{arsinh}	arsinh|arcsinh|asinh
+func	\operatorname{arcosh}	arcosh|arccosh|acosh
+func	\operatorname{artanh}	artanh|arctanh|atanh
+func	\log	log
+func	\ln	ln
+func	\lg	lg
+func	\exp	exp
+func	\gcd	gcd
+func	\operatorname{lcm}	lcm
+func	\max	max
+func	\min	min
+func	\sup	sup
+func	\inf	inf
+func	\liminf	liminf
+func	\limsup	limsup
+func	\det	det
+func	\dim	dim
+func	\ker	ker
+func	\deg	deg
+func	\arg	arg
+func	\hom	hom
+func	\Pr	Pr
+func	\operatorname*{arg\,max}	argmax
+func	\operatorname*{arg\,min}	argmin
+func	\operatorname{sgn}	sgn
+func	\operatorname{tr}	tr
+func	\operatorname{Tr}	Tr
+func	\operatorname{ord}	ord
+func	\operatorname{Var}	Var
+func	\operatorname{Cov}	Cov
+func	\operatorname{Aut}	Aut
+func	\operatorname{End}	End
+func	\operatorname{Hom}	Hom
+func	\operatorname{Spec}	Spec
+func	\operatorname{Proj}	Proj
+func	\operatorname{Gal}	Gal
+func	\operatorname{Tor}	Tor
+func	\operatorname{Ext}	Ext
+func	\operatorname{diam}	diam
+func	\operatorname{dist}	dist
+func	\operatorname{vol}	vol
+func	\operatorname{supp}	supp
+func	\operatorname{rad}	rad
+func	\operatorname{Res}	Res
+func	\operatorname{coker}	coker
+func	\operatorname{codim}	codim
+func	\operatorname{adj}	adj
+func	\operatorname{diag}	diag
+func	\operatorname{erf}	erf
+func	\operatorname{erfc}	erfc
+func	\operatorname{Li}	Li
+func	\operatorname{li}	li
+func	\operatorname{conv}	conv
+func	\operatorname{cl}	cl
+func	\operatorname{int}	interior of
+func	\operatorname{im}	im
+func	\operatorname{id}	id
+func	\operatorname{GL}	GL
+func	\operatorname{SL}	SL
+func	\operatorname{SO}	SO
+func	\operatorname{SU}	SU
+func	\operatorname{PSL}	PSL
+func	\operatorname{PGL}	PGL
+func	\operatorname{Sym}	Sym
+func	\operatorname{Alt}	Alt
+func	\operatorname{Stab}	Stab
+func	\operatorname{Orb}	Orb
+func	\operatorname{Inn}	Inn
+func	\operatorname{Out}	Out
+func	\operatorname{Frac}	Frac
+func	\varphi	totient
+funcp	\operatorname{rank}	rank
+funcp	\operatorname{span}	span
+funcp	\operatorname{tr}	trace
+funcp	\operatorname{sgn}	sign
+funcp	\operatorname{im}	image
+funcp	\ker	kernel
+funcp	\deg	degree
+funcp	\dim	dimension
+funcp	\det	determinant
+funcp	\sin	sine
+funcp	\cos	cosine
+funcp	\tan	tangent
+funcp	\log	logarithm
+funcp	\exp	exponential
+funcp	\Pr	probability|prob
+funcp	\mathbb{E}	expectation|expected value
+funcp	\operatorname{Var}	variance
+funcp	\operatorname{Cov}	covariance
+funcp	\operatorname{ord}	order
+funcp	\operatorname{lcm}	lowest common multiple|least common multiple
+funcp	\gcd	greatest common divisor
+funcp	\max	maximum
+funcp	\min	minimum
+funcp	\sup	supremum
+funcp	\inf	infimum
+funcp	\operatorname{diam}	diameter
+funcp	\operatorname{dist}	distance
+funcp	\operatorname{vol}	volume
+funcp	\operatorname{supp}	support
+funcp	\operatorname{conv}	convex hull
+funcp	\operatorname{Aut}	automorphisms
+funcp	\mathcal{P}	powerset|power set
+
+# ----------------------------------------------------------------------------- relations
+rel	=	equals|eq|+equal to|+the same as|＝	\neq
+rel	\neq	neq|ne|+not equal to|+different from|+unequal to|≠	=
+rel	\leq	leq|le|leqslant|≤|⩽|+at most|+less than or equal to|+no more than|+not more than|+no greater than|+not greater than|+smaller than or equal to|+bounded above by	\not\leq
+rel	\geq	geq|ge|geqslant|≥|⩾|+at least|+greater than or equal to|+no less than|+not less than|+no smaller than|+not smaller than|+larger than or equal to|+bounded below by	\not\geq
+rel	<	lt|+less than|+smaller than|+strictly less than|+strictly smaller than|+below	\not<
+rel	>	gt|+greater than|+larger than|+bigger than|+strictly greater than|+strictly larger than|+above	\not>
+rel	\leqq	leqq|≦	\nleqq
+rel	\geqq	geqq|≧	\ngeqq
+rel	\ll	ll|≪|+much less than|+much smaller than
+rel	\gg	gg|≫|+much greater than|+much larger than
+rel	\lll	lll|⋘
+rel	\ggg	ggg|⋙
+rel	\equiv	equiv|congruent|≡|+congruent to|+equivalent to|+identically equal to	\not\equiv
+rel	\not\equiv	nequiv|≢|+incongruent to|+not congruent to	\equiv
+rel	\cong	cong|≅|+isomorphic to|+congruent as triangles to	\ncong
+rel	\ncong	ncong|≇|+not isomorphic to	\cong
+rel	\approx	approx|≈|+approximately equal to|+approximately|+roughly	\not\approx
+rel	\simeq	simeq|≃|+homotopy equivalent to|+asymptotically equal to
+rel	\sim	sim|∼|+similar to|+asymptotic to|+distributed as|+homotopic to|+equinumerous with	\nsim
+rel	\nsim	nsim|≁	\sim
+rel	\approxeq	approxeq|≊
+rel	\backsim	backsim|∽
+rel	\backsimeq	backsimeq|⋍
+rel	\thicksim	thicksim
+rel	\thickapprox	thickapprox
+rel	\propto	propto|∝|+proportional to
+rel	\varpropto	varpropto
+rel	\asymp	asymp|≍|+asymptotically equivalent to
+rel	\doteq	doteq|≐|+approaches the limit
+rel	\triangleq	triangleq|≜|+by definition equal to
+rel	:=	coloneqq|≔|+defined to be|+defined as
+rel	\eqcirc	eqcirc|≖
+rel	\circeq	circeq|≗
+rel	\risingdotseq	risingdotseq|≓
+rel	\fallingdotseq	fallingdotseq|≒
+rel	\bumpeq	bumpeq|≏
+rel	\Bumpeq	Bumpeq|≎
+rel	\mid	mid|divides|∣|+a divisor of|+a factor of	\nmid
+rel	\nmid	nmid|ndivides|∤|+not a divisor of|+does not divide	\mid
+rel	\parallel	parallel|∥|+parallel to	\nparallel
+rel	\nparallel	nparallel|∦|+not parallel to	\parallel
+rel	\perp	perp|⟂|+perpendicular to|+orthogonal to	\not\perp
+rel	\in	in|elem|∈|+an element of|+a member of|+contained in the set|+belongs to|+lies in|+in the set	\notin
+rel	\notin	notin|∉|+not an element of|+not a member of|+not in the set	\in
+rel	\ni	ni|∋|+has as an element|+has as a member	\not\ni
+rel	\subseteq	subset|subseteq|⊆|+a subset of|+contained in|+included in|+a subcollection of	\not\subseteq
+rel	\subsetneq	psubset|subsetneq|varsubsetneq|⊊|⊂|+a proper subset of|+properly contained in|+strictly contained in|+a strict subset of	\not\subsetneq
+rel	\supseteq	supset|supseteq|⊇|+a superset of|+contains the set	\not\supseteq
+rel	\supsetneq	psupset|supsetneq|varsupsetneq|⊋|⊃|+a proper superset of|+properly contains	\not\supsetneq
+rel	\not\subseteq	nsubseteq|⊈	\subseteq
+rel	\not\supseteq	nsupseteq|⊉	\supseteq
+rel	\subseteqq	subseteqq|⫅
+rel	\supseteqq	supseteqq|⫆
+rel	\subsetneqq	subsetneqq|⫋
+rel	\supsetneqq	supsetneqq|⫌
+rel	\Subset	Subset|⋐|+compactly contained in
+rel	\Supset	Supset|⋑
+rel	\sqsubset	sqsubset|⊏
+rel	\sqsupset	sqsupset|⊐
+rel	\sqsubseteq	sqsubseteq|⊑
+rel	\sqsupseteq	sqsupseteq|⊒
+rel	\prec	prec|≺|+precedes	\nprec
+rel	\succ	succ|≻|+succeeds	\nsucc
+rel	\preceq	preceq|⪯|+precedes or equals	\npreceq
+rel	\succeq	succeq|⪰|+succeeds or equals	\nsucceq
+rel	\preccurlyeq	preccurlyeq|≼
+rel	\succcurlyeq	succcurlyeq|≽
+rel	\curlyeqprec	curlyeqprec|⋞
+rel	\curlyeqsucc	curlyeqsucc|⋟
+rel	\precsim	precsim|≾
+rel	\succsim	succsim|≿
+rel	\precapprox	precapprox|⪷
+rel	\succapprox	succapprox|⪸
+rel	\nprec	nprec|⊀
+rel	\nsucc	nsucc|⊁
+rel	\npreceq	npreceq|⋠
+rel	\nsucceq	nsucceq|⋡
+rel	\lesssim	lesssim|≲|+less than or approximately|+bounded up to a constant by
+rel	\gtrsim	gtrsim|≳
+rel	\lessapprox	lessapprox|⪅
+rel	\gtrapprox	gtrapprox|⪆
+rel	\lessgtr	lessgtr|≶
+rel	\gtrless	gtrless|≷
+rel	\lesseqgtr	lesseqgtr|⋚
+rel	\gtreqless	gtreqless|⋛
+rel	\lesseqqgtr	lesseqqgtr
+rel	\gtreqqless	gtreqqless
+rel	\eqslantless	eqslantless|⪕
+rel	\eqslantgtr	eqslantgtr|⪖
+rel	\lessdot	lessdot|⋖
+rel	\gtrdot	gtrdot|⋗
+rel	\nless	nless|≮	<
+rel	\ngtr	ngtr|≯	>
+rel	\nleq	nleq|≰	\leq
+rel	\ngeq	ngeq|≱	\geq
+rel	\nleqslant	nleqslant
+rel	\ngeqslant	ngeqslant
+rel	\nleqq	nleqq
+rel	\ngeqq	ngeqq
+rel	\lneq	lneq|⪇
+rel	\gneq	gneq|⪈
+rel	\lneqq	lneqq|≨
+rel	\gneqq	gneqq|≩
+rel	\lnsim	lnsim|⋦
+rel	\gnsim	gnsim|⋧
+rel	\lnapprox	lnapprox|⪉
+rel	\gnapprox	gnapprox|⪊
+rel	\precneqq	precneqq
+rel	\succneqq	succneqq
+rel	\precnsim	precnsim|⋨
+rel	\succnsim	succnsim|⋩
+rel	\vartriangleleft	vartriangleleft|lhd|⊲|+a normal subgroup of
+rel	\trianglelefteq	trianglelefteq|unlhd|⊴|+a normal subgroup or equal to
+rel	\vartriangleright	vartriangleright|rhd|⊳
+rel	\trianglerighteq	trianglerighteq|unrhd|⊵
+rel	\ntriangleleft	ntriangleleft|⋪
+rel	\ntriangleright	ntriangleright|⋫
+rel	\ntrianglelefteq	ntrianglelefteq|⋬
+rel	\ntrianglerighteq	ntrianglerighteq|⋭
+rel	\leq	+a subgroup of
+rel	\vdash	vdash|⊢	\nvdash
+rel	\nvdash	nvdash|⊬	\vdash
+rel	\models	models|vDash|⊨	\nvDash
+rel	\nvDash	nvDash|⊭	\models
+rel	\Vdash	Vdash|⊩
+rel	\nVdash	nVdash|⊮
+rel	\Vvdash	Vvdash|⊪
+rel	\dashv	dashv|⊣|+left adjoint to
+rel	\smallsmile	smallsmile
+rel	\smallfrown	smallfrown
+rel	\pitchfork	pitchfork|⋔|+transverse to
+rel	\shortmid	shortmid
+rel	\shortparallel	shortparallel
+rel	\nshortmid	nshortmid
+rel	\nshortparallel	nshortparallel
+rel	\bowtie	bowtie|⋈
+rel	\Join	Join
+rel	\sqsubsetneq	sqsubsetneq
+rel	\in	is in|∊
+rel	\cong	homeomorphic|+homeomorphic to|+diffeomorphic to|+isometric to|+biholomorphic to|+conformally equivalent to
+rel	\simeq	+homotopy equivalent to|+weakly equivalent to
+rel	\sim	+conjugate to|+row equivalent to|+similar as matrices to
+rel	\text{ is divisible by }	+divisible by	\text{ is not divisible by }
+
+# ----------------------------------------------------------------------------- arrows
+arrow	\to	to|rightarrow|→|+approaches|+tends to|+goes to|+converges to|+maps into|+heads to|+tending to|+going to|+approaching|+converging to
+arrow	\mapsto	mapsto|↦|+maps to|+is mapped to|+is sent to|+sends to|+goes to under the map
+arrow	\longmapsto	longmapsto|⟼
+arrow	\leftarrow	leftarrow|←
+arrow	\longrightarrow	longrightarrow|⟶
+arrow	\longleftarrow	longleftarrow|⟵
+arrow	\leftrightarrow	leftrightarrow|↔
+arrow	\longleftrightarrow	longleftrightarrow|⟷
+arrow	\Rightarrow	Rightarrow|⇒
+arrow	\Leftarrow	Leftarrow|⇐
+arrow	\Leftrightarrow	Leftrightarrow|⇔
+arrow	\Longrightarrow	Longrightarrow|⟹
+arrow	\Longleftarrow	Longleftarrow|⟸
+arrow	\Longleftrightarrow	Longleftrightarrow|⟺
+arrow	\hookrightarrow	hookrightarrow|↪|+injects into|+embeds into|+embeds in
+arrow	\hookleftarrow	hookleftarrow|↩
+arrow	\twoheadrightarrow	twoheadrightarrow|↠|+surjects onto|+maps onto
+arrow	\twoheadleftarrow	twoheadleftarrow|↞
+arrow	\rightharpoonup	rightharpoonup|⇀|+converges weakly to|+weakly converges to
+arrow	\rightharpoondown	rightharpoondown|⇁
+arrow	\leftharpoonup	leftharpoonup|↼
+arrow	\leftharpoondown	leftharpoondown|↽
+arrow	\rightleftharpoons	rightleftharpoons|⇌
+arrow	\leftrightharpoons	leftrightharpoons|⇋
+arrow	\uparrow	uparrow|↑|+increases to|+increases monotonically to
+arrow	\downarrow	downarrow|↓|+decreases to|+decreases monotonically to
+arrow	\updownarrow	updownarrow|↕
+arrow	\Uparrow	Uparrow|⇑
+arrow	\Downarrow	Downarrow|⇓
+arrow	\Updownarrow	Updownarrow|⇕
+arrow	\nearrow	nearrow|↗
+arrow	\searrow	searrow|↘
+arrow	\swarrow	swarrow|↙
+arrow	\nwarrow	nwarrow|↖
+arrow	\leadsto	leadsto|rightsquigarrow|⇝
+arrow	\leftrightsquigarrow	leftrightsquigarrow|↭
+arrow	\curvearrowright	curvearrowright|↷|+acts on
+arrow	\curvearrowleft	curvearrowleft|↶
+arrow	\circlearrowright	circlearrowright|↻
+arrow	\circlearrowleft	circlearrowleft|↺
+arrow	\rightrightarrows	rightrightarrows|⇉
+arrow	\leftleftarrows	leftleftarrows|⇇
+arrow	\rightleftarrows	rightleftarrows|⇄
+arrow	\leftrightarrows	leftrightarrows|⇆
+arrow	\Rrightarrow	Rrightarrow|⇛
+arrow	\Lleftarrow	Lleftarrow|⇚
+arrow	\Lsh	Lsh|↰
+arrow	\Rsh	Rsh|↱
+arrow	\looparrowright	looparrowright|↬
+arrow	\looparrowleft	looparrowleft|↫
+arrow	\rightarrowtail	rightarrowtail|↣
+arrow	\leftarrowtail	leftarrowtail|↢
+arrow	\nrightarrow	nrightarrow|↛|+does not tend to|+does not converge to
+arrow	\nleftarrow	nleftarrow|↚
+arrow	\nleftrightarrow	nleftrightarrow|↮
+arrow	\nRightarrow	nRightarrow|⇏
+arrow	\nLeftarrow	nLeftarrow|⇍
+arrow	\nLeftrightarrow	nLeftrightarrow|⇎
+arrow	\multimap	multimap|⊸
+arrow	\dashrightarrow	dashrightarrow|⇢
+arrow	\dashleftarrow	dashleftarrow|⇠
+
+# ----------------------------------------------------------------------------- operators
+add	+	plus|＋
+add	-	minus|−
+add	\pm	pm|plus or minus|±
+add	\mp	mp|minus or plus|∓
+add	\dotplus	dotplus|∔
+div	\frac	divided by|÷
+bin	\cdot	dot|cdot|⋅|·|+multiplied by
+bin	\times	times|cross|×|+multiplied with|+cartesian product with
+bin	\ast	ast|convolved with|∗|+convolution with|+free product with
+bin	\star	star operator|⋆
+bin	\circ	compose|circ|∘|+composed with
+bin	\bullet	bullet|∙
+bin	\div	div
+bin	\oplus	oplus|direct sum|⊕|+direct sum with|+direct summed with
+bin	\ominus	ominus|⊖
+bin	\otimes	otimes|tensor|tensor product|⊗|+tensored with|+tensor product with
+bin	\oslash	oslash|⊘
+bin	\odot	odot|hadamard|⊙|+hadamard product with
+bin	\uplus	uplus|disjoint union|⊎
+bin	\sqcup	sqcup|⊔|+disjoint union with|+coproduct with
+bin	\sqcap	sqcap|⊓
+bin	\wedge	wedge|land|meet|∧|+wedge product with
+bin	\vee	vee|lor|join|∨
+bin	\wr	wr|wreath product|≀|+wreath product with
+bin	\rtimes	rtimes|semidirect product|⋊|+semidirect product with
+bin	\ltimes	ltimes|⋉
+bin	\diamond	diamond|⋄
+bin	\amalg	amalg|⨿
+bin	\boxplus	boxplus|⊞
+bin	\boxtimes	boxtimes|⊠
+bin	\boxminus	boxminus|⊟
+bin	\boxdot	boxdot|⊡
+bin	\divideontimes	divideontimes|⋇
+bin	\intercal	intercal|⊺
+bin	\barwedge	barwedge|⊼
+bin	\veebar	veebar|⊻
+bin	\curlywedge	curlywedge|⋏
+bin	\curlyvee	curlyvee|⋎
+bin	\Cap	Cap|⋒
+bin	\Cup	Cup|⋓
+bin	\centerdot	centerdot
+bin	\leftthreetimes	leftthreetimes|⋋
+bin	\rightthreetimes	rightthreetimes|⋌
+bin	\circledast	circledast|⊛
+bin	\circledcirc	circledcirc|⊚
+bin	\circleddash	circleddash|⊝
+bin	\triangleleft	triangleleft|◁
+bin	\triangleright	triangleright|▷
+bin	\bigtriangleup	bigtriangleup|△
+bin	\bigtriangledown	bigtriangledown|▽
+bin	\setminus	smallsetminus
+setop	\cup	union|cup|∪|+union with|+unioned with
+setop	\cap	intersect|intersection|cap|∩|+intersected with|+intersection with
+setop	\setminus	setminus|setdiff|∖|+minus the set|+without the set|set difference
+setop	\triangle	symmdiff|symdiff|symmetric difference|symmetrical difference|+symmetric difference with
+post	^{c}	comp|complement|ᶜ
+post	^{\mathsf{T}}	transpose|ᵀ
+post	^{-1}	inverse|⁻¹
+post	^{2}	squared|²
+post	^{3}	cubed|³
+post	^{*}	adjoint|dual
+post	^{\perp}	orthogonal complement|perp complement|annihilator
+post	!	factorial
+post	^{\dagger}	conjugate transpose|hermitian adjoint
+accent	\hat	hat|widehat
+accent	\bar	bar
+accent	\overline	overline|conjugate
+accent	\tilde	tilde|widetilde
+accent	\vec	vec
+accent	\ddot	ddot
+accent	\check	checkaccent
+accent	\breve	breve
+accent	\mathring	ring accent
+big	\sum	∑
+big	\prod	∏
+big	\coprod	coprod|∐
+big	\bigcup	bigcup|big union|⋃
+big	\bigcap	bigcap|big intersection|⋂
+big	\bigoplus	bigoplus|big direct sum|⨁
+big	\bigotimes	bigotimes|big tensor product|⨂
+big	\bigodot	bigodot|⨀
+big	\biguplus	biguplus|⨄
+big	\bigsqcup	bigsqcup|big disjoint union|⨆
+big	\bigvee	bigvee|⋁
+big	\bigwedge	bigwedge|⋀
+
+# ----------------------------------------------------------------------------- letter styles (generated block)
+greek	A	capital alpha|big alpha
+greek	B	capital beta|big beta
+greek	\Gamma	capital gamma|big gamma
+greek	\Delta	capital delta|big delta
+greek	E	capital epsilon|big epsilon
+greek	Z	capital zeta|big zeta
+greek	H	capital eta|big eta
+greek	\Theta	capital theta|big theta
+greek	I	capital iota|big iota
+greek	K	capital kappa|big kappa
+greek	\Lambda	capital lambda|big lambda
+greek	M	capital mu|big mu
+greek	N	capital nu|big nu
+greek	\Xi	capital xi|big xi
+greek	O	capital omicron|big omicron
+greek	\Pi	capital pi|big pi
+greek	P	capital rho|big rho
+greek	\Sigma	capital sigma|big sigma
+greek	T	capital tau|big tau
+greek	\Upsilon	capital upsilon|big upsilon
+greek	\Phi	capital phi|big phi
+greek	X	capital chi|big chi
+greek	\Psi	capital psi|big psi
+greek	\Omega	capital omega|big omega
+const	\mathbb{A}	bbA|𝔸
+const	\mathcal{A}	calA|𝒜
+const	\mathscr{A}	scrA
+const	\mathfrak{A}	frakA|𝔄
+const	\mathbb{B}	bbB|𝔹
+const	\mathcal{B}	calB|ℬ
+const	\mathscr{B}	scrB
+const	\mathfrak{B}	frakB|𝔅
+const	\mathbb{C}	bbC
+const	\mathcal{C}	calC|𝒞
+const	\mathscr{C}	scrC
+const	\mathfrak{C}	frakC|ℭ
+const	\mathbb{D}	bbD|𝔻
+const	\mathcal{D}	calD|𝒟
+const	\mathscr{D}	scrD
+const	\mathfrak{D}	frakD|𝔇
+const	\mathbb{E}	bbE|𝔼
+const	\mathcal{E}	calE|ℰ
+const	\mathscr{E}	scrE
+const	\mathfrak{E}	frakE|𝔈
+const	\mathbb{F}	bbF|𝔽
+const	\mathcal{F}	calF|ℱ
+const	\mathscr{F}	scrF
+const	\mathfrak{F}	frakF|𝔉
+const	\mathbb{G}	bbG|𝔾
+const	\mathcal{G}	calG|𝒢
+const	\mathscr{G}	scrG
+const	\mathfrak{G}	frakG|𝔊
+const	\mathbb{H}	bbH
+const	\mathcal{H}	calH|ℋ
+const	\mathscr{H}	scrH
+const	\mathfrak{H}	frakH|ℌ
+const	\mathbb{I}	bbI|𝕀
+const	\mathcal{I}	calI|ℐ
+const	\mathscr{I}	scrI
+const	\mathfrak{I}	frakI|ℑ
+const	\mathbb{J}	bbJ|𝕁
+const	\mathcal{J}	calJ|𝒥
+const	\mathscr{J}	scrJ
+const	\mathfrak{J}	frakJ|𝔍
+const	\mathbb{K}	bbK|𝕂
+const	\mathcal{K}	calK|𝒦
+const	\mathscr{K}	scrK
+const	\mathfrak{K}	frakK|𝔎
+const	\mathbb{L}	bbL|𝕃
+const	\mathcal{L}	calL|ℒ
+const	\mathscr{L}	scrL
+const	\mathfrak{L}	frakL|𝔏
+const	\mathbb{M}	bbM|𝕄
+const	\mathcal{M}	calM|ℳ
+const	\mathscr{M}	scrM
+const	\mathfrak{M}	frakM|𝔐
+const	\mathbb{N}	bbN
+const	\mathcal{N}	calN|𝒩
+const	\mathscr{N}	scrN
+const	\mathfrak{N}	frakN|𝔑
+const	\mathbb{O}	bbO|𝕆
+const	\mathcal{O}	calO|𝒪
+const	\mathscr{O}	scrO
+const	\mathfrak{O}	frakO|𝔒
+const	\mathbb{P}	bbP
+const	\mathcal{P}	calP|𝒫
+const	\mathscr{P}	scrP
+const	\mathfrak{P}	frakP|𝔓
+const	\mathbb{Q}	bbQ
+const	\mathcal{Q}	calQ|𝒬
+const	\mathscr{Q}	scrQ
+const	\mathfrak{Q}	frakQ|𝔔
+const	\mathbb{R}	bbR
+const	\mathcal{R}	calR|ℛ
+const	\mathscr{R}	scrR
+const	\mathfrak{R}	frakR|ℜ
+const	\mathbb{S}	bbS|𝕊
+const	\mathcal{S}	calS|𝒮
+const	\mathscr{S}	scrS
+const	\mathfrak{S}	frakS|𝔖
+const	\mathbb{T}	bbT|𝕋
+const	\mathcal{T}	calT|𝒯
+const	\mathscr{T}	scrT
+const	\mathfrak{T}	frakT|𝔗
+const	\mathbb{U}	bbU|𝕌
+const	\mathcal{U}	calU|𝒰
+const	\mathscr{U}	scrU
+const	\mathfrak{U}	frakU|𝔘
+const	\mathbb{V}	bbV|𝕍
+const	\mathcal{V}	calV|𝒱
+const	\mathscr{V}	scrV
+const	\mathfrak{V}	frakV|𝔙
+const	\mathbb{W}	bbW|𝕎
+const	\mathcal{W}	calW|𝒲
+const	\mathscr{W}	scrW
+const	\mathfrak{W}	frakW|𝔚
+const	\mathbb{X}	bbX|𝕏
+const	\mathcal{X}	calX|𝒳
+const	\mathscr{X}	scrX
+const	\mathfrak{X}	frakX|𝔛
+const	\mathbb{Y}	bbY|𝕐
+const	\mathcal{Y}	calY|𝒴
+const	\mathscr{Y}	scrY
+const	\mathfrak{Y}	frakY|𝔜
+const	\mathbb{Z}	bbZ
+const	\mathcal{Z}	calZ|𝒵
+const	\mathscr{Z}	scrZ
+const	\mathfrak{Z}	frakZ|ℨ
+const	\mathfrak{a}	fraka
+const	\mathfrak{b}	frakb
+const	\mathfrak{c}	frakc
+const	\mathfrak{d}	frakd
+const	\mathfrak{e}	frake
+const	\mathfrak{f}	frakf
+const	\mathfrak{g}	frakg
+const	\mathfrak{h}	frakh
+const	\mathfrak{i}	fraki
+const	\mathfrak{j}	frakj
+const	\mathfrak{k}	frakk
+const	\mathfrak{l}	frakl
+const	\mathfrak{m}	frakm
+const	\mathfrak{n}	frakn
+const	\mathfrak{o}	frako
+const	\mathfrak{p}	frakp
+const	\mathfrak{q}	frakq
+const	\mathfrak{r}	frakr
+const	\mathfrak{s}	fraks
+const	\mathfrak{t}	frakt
+const	\mathfrak{u}	fraku
+const	\mathfrak{v}	frakv
+const	\mathfrak{w}	frakw
+const	\mathfrak{x}	frakx
+const	\mathfrak{y}	fraky
+const	\mathfrak{z}	frakz
+
+# ----------------------------------------------------------------------------- delimiters & more relations
+const	\langle	langle|⟨
+const	\rangle	rangle|⟩
+const	\lfloor	lfloor|⌊
+const	\rfloor	rfloor|⌋
+const	\lceil	lceil|⌈
+const	\rceil	rceil|⌉
+const	\lvert	lvert
+const	\rvert	rvert
+const	\lVert	lVert|‖
+const	\rVert	rVert
+const	\ulcorner	ulcorner|⌜
+const	\urcorner	urcorner|⌝
+const	\llcorner	llcorner|⌞
+const	\lrcorner	lrcorner|⌟
+rel	=	+identical to|+identically	\neq
+rel	\cong	+isomorphic with|+naturally isomorphic to|+canonically isomorphic to|+isomorphic as groups to|+isomorphic as rings to|+isomorphic as vector spaces to|+isomorphic as modules to	\ncong
+rel	\sim	+equivalent under the relation to|+related to	\nsim
+rel	\perp\!\!\!\perp	+independent of|+independent from|independent
+rel	\overset{\text{a.e.}}{=}	+equal almost everywhere to|+almost everywhere equal to
+rel	\overset{\text{a.s.}}{=}	+almost surely equal to|+equal almost surely to
+rel	\overset{d}{=}	+equal in distribution to|+equal in law to
+rel	\dashv	+right adjoint to
+rel	\subseteq	+a subspace of|+a submodule of|+a subring of|+a subfield of|+an ideal of|+a sub-object of
+rel	\vartriangleleft	+a normal subgroup of|+normal in
+rel	\leq	+less than or equal|+smaller or equal to|+bounded by
+rel	\geq	+greater than or equal|+larger or equal to
+arrow	\rightrightarrows	+converges uniformly to|+uniformly converges to
+arrow	\xrightarrow{P}	+converges in probability to
+arrow	\xrightarrow{\text{a.s.}}	+converges almost surely to
+arrow	\xrightarrow{d}	+converges in distribution to|+converges in law to
+arrow	\xrightarrow{L^p}	+converges in L^p to
+arrow	\to	+converges pointwise to|+tends towards|+goes towards
+arrow	\nrightarrow	+does not approach|+fails to converge to
+arrow	\xrightarrow{\sim}	+maps isomorphically onto|+is mapped isomorphically to

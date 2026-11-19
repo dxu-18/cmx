@@ -1,0 +1,6 @@
+// sum from i=0 to n-1 of r^i, r != 1
+let r in R with r != 1 and n in N.
+then sum from i=0 to n-1 of r^i = (r^n - 1)/(r - 1).
+proof. let S = sum from i=0 to n-1 of r^i. then rS - S = r^n - 1.
+since r != 1 we may divide by r - 1.
+qed

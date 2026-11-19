@@ -1,0 +1,9 @@
+// every spelling of such that
+let x in Z such that x > 0.
+let y in Z s.t. y > 0.
+let z in Z s.t y > z.
+let u in Z st u > 0.
+let v in Z st. v > 0.
+let w in integers with w > 5.
+let t in integers w/ t > 5.
+let x in Z, sum from i = 1 to 4 = 30.

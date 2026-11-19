@@ -1,0 +1,4 @@
+// expect: ok
+let p be a prime. assume p = 7
+wts p * p = 49
+qed

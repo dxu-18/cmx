@@ -1,0 +1,4 @@
+// by ... qed, since ... qed
+wts A = B
+we show both inclusions.
+by double containment qed

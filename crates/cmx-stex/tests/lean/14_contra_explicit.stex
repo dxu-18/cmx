@@ -1,0 +1,7 @@
+// expect: ok
+let n in N. assume n^2 < 1
+wts n = 0
+afsoc n >= 1
+then n^2 >= 1
+contradiction
+qed

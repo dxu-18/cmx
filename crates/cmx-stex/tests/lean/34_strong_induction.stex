@@ -1,0 +1,7 @@
+// expect: ok
+theorem: for all n in N, 2^n >= n + 1
+proof
+we proceed by strong induction on n.
+case 1 n = 0: then 2^0 = 1
+case 2 n >= 1: then 2^(n-1) >= n by the inductive hypothesis, so 2^n = 2 * 2^(n-1) >= 2n >= n + 1
+qed

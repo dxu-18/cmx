@@ -1,0 +1,8 @@
+// induction on products, prod from i=1 to n
+theorem: for all n in N, prod from i=1 to n of (1 + 1/i) = n + 1
+proof
+we proceed by induction on n.
+base case n = 0: the empty product is 1.
+inductive step: assume prod from i=1 to k of (1 + 1/i) = k + 1.
+then the product up to k + 1 is (k + 1)(1 + 1/(k+1)) = k + 2.
+qed

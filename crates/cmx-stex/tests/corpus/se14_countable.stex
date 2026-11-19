@@ -1,0 +1,3 @@
+// countable, there is a bijection, N to Z
+the integers are countable: there is a bijection f: N to Z.
+for example define f(n) = n/2 if n is even and f(n) = -(n+1)/2 if n is odd.

@@ -1,0 +1,7 @@
+// three cases by trichotomy, with "exhaustive by trichotomy" closing them
+let x be a real number. wts |x| >= 0
+case x < 0. then |x| = -x > 0.
+case x = 0. then |x| = 0.
+case x > 0. then |x| = x > 0.
+exhaustive by trichotomy, so |x| >= 0 for every real x
+qed

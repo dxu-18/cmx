@@ -1,0 +1,5 @@
+// steps, in total, choose, multiplication principle
+we count the committees of 3 from 10 people with a chair.
+step 1: choose the chair in 10 ways.
+step 2: choose the other two members in 9 choose 2 ways.
+in total, there are 10 * (9 choose 2) = 360 ways by the multiplication principle.

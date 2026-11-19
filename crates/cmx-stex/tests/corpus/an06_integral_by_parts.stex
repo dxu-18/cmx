@@ -1,0 +1,2 @@
+// integration by parts, integrate ... from ... to
+integrate x e^x from 0 to 1 by parts: with u = x and dv = e^x dx we get [x e^x] from 0 to 1 minus integral from 0 to 1 of e^x dx = 1.

@@ -1,0 +1,3 @@
+// empty set word, empty set = empty set
+note that the empty set is a subset of every set.
+for any set A, A union empty set = A and A intersect empty set = empty set.

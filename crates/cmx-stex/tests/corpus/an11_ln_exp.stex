@@ -1,0 +1,3 @@
+// ln, exp, log
+for every x > 0, e^(ln x) = x, and ln(e^y) = y for every y in R.
+also log(ab) = log(a) + log(b) for a, b > 0.

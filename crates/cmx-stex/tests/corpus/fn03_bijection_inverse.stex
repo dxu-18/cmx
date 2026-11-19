@@ -1,0 +1,3 @@
+// inverse function, f^(-1), iff
+a function f: X to Y is a bijection iff there is a function g: Y to X such that g o f = id_X and f o g = id_Y.
+in that case g = f^(-1) is unique.

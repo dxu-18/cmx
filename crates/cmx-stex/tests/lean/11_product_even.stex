@@ -1,0 +1,5 @@
+// expect: ok
+let n in Z. wts n(n + 1) is even
+case 1 n is even: then n(n + 1) is even
+case 2 n is odd: then n + 1 is even, so n(n + 1) is even
+qed

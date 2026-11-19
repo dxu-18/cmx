@@ -1,0 +1,5 @@
+// expect: ok
+let x in R. wts |x| >= x
+case 1 x >= 0: then |x| = x
+case 2 x < 0: then |x| = -x > 0 > x
+qed

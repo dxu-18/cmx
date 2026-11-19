@@ -1,0 +1,7 @@
+// divides, there exist ... such that, therefore
+lemma: let a, b, c in Z. if a divides b and b divides c then a divides c.
+proof. assume a | b and b | c.
+then there exist integers k and l such that b = ak and c = bl.
+therefore c = (ak)l = a(kl).
+since kl in Z, a divides c.
+qed

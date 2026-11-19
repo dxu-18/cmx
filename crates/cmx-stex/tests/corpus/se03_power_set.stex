@@ -1,0 +1,3 @@
+// power set, subset, cardinality |A|
+let A be a finite set with |A| = n. then the power set of A has 2^n elements.
+indeed each subset S subseteq A is determined by choosing, for every a in A, whether a in S.

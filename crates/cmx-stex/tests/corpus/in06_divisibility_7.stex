@@ -1,0 +1,8 @@
+// induction: 7 | 8^n - 1
+theorem: for every n in N, 7 divides 8^n - 1
+proof
+we proceed by induction on n.
+base case n = 0: 8^0 - 1 = 0 is divisible by 7.
+inductive step: assume 7 | 8^k - 1. then 8^(k+1) - 1 = 8(8^k - 1) + 7.
+since 7 divides both terms, 7 | 8^(k+1) - 1.
+qed

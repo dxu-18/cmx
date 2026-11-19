@@ -1,0 +1,4 @@
+// expect: ok
+wts exists k in Z such that 12 = 3k
+choose k = 4. then 3k = 12
+qed

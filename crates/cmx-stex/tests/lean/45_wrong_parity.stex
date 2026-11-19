@@ -1,0 +1,4 @@
+// expect: fail 4
+let n in Z. assume n is odd
+wts n^2 is even
+qed

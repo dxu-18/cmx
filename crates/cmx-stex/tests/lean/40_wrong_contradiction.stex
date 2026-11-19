@@ -1,0 +1,7 @@
+// expect: fail 6
+let x in R. assume x > 0
+wts x > 1
+afsoc x <= 1
+then x^2 <= 1
+contradiction
+qed

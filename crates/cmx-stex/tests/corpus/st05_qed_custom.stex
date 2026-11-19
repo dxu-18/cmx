@@ -1,0 +1,4 @@
+// qed with a custom claim
+wts x^2 >= 0 for every x in R
+note that squares are nonnegative.
+qed x^2 >= 0

@@ -1,0 +1,5 @@
+// < chain, between, strictly between, thus
+let x in R with 0 < x < 1.
+then x^2 < x because x > 0 and x < 1.
+thus x^2 is strictly between 0 and 1.
+also 1/x > 1, so 1/x lies strictly between 1 and infinity.

@@ -1,0 +1,2 @@
+// bounded, there exists M such that for all n
+a sequence (a_n) is bounded if there exists M > 0 such that |a_n| <= M for all n in N.

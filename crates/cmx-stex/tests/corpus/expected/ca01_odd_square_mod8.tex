@@ -1,0 +1,33 @@
+We show that $x$ is odd implies $8 \mid x^{2} - 1$.
+
+Suppose that $x$ is odd.
+Then there exists $k \in \mathbb{Z}$ such that $x = 2k + 1$.
+Then
+\begin{align*}
+  x^{2} - 1 &= (2k + 1)^{2} - 1 \\
+  &= (4k^{2} + 4k + 1) - 1 \\
+  &= 4k^{2} + 4k
+\end{align*}
+
+\begin{itemize}
+  \item Case 1: Suppose $k$ is odd.
+    Then there exists $l \in \mathbb{Z}$ such that $k = 2l + 1$.
+    Then
+    \begin{align*}
+      4k^{2} + 4k &= 4(2l + 1)^{2} + 4(2l + 1) \\
+      &= 4(4l^{2} + 4l + 1) + 4(2l + 1) \\
+      &= 8(2l^{2} + 2l) + 8 + 8l \\
+      &= 8(2l^{2} + 3l + 1)
+    \end{align*}
+
+    Note that $(2l^{2} + 3l + 1) \in \mathbb{Z}$, so by definition of divisibility, $8 \mid (x^{2} - 1)$.
+  \item Case 2: Suppose $k$ is even.
+    Then there exists $l \in \mathbb{Z}$ such that $k = 2l$.
+    Then $4k^{2} + 4k = 4 \cdot 4l^{2} + 8l = 8(2l^{2} + l)$.
+
+    Note that $(2l^{2} + l) \in \mathbb{Z}$, so by definition of divisibility $8 \mid (x^{2} - 1)$.
+\end{itemize}
+
+In all exhaustive cases, $8 \mid (x^{2} - 1)$, and thus $x$ is odd implies $8 \mid (x^{2} - 1)$.
+
+Hence $x$ is odd implies $8 \mid x^{2} - 1$, as required. \hfill$\square$

@@ -1,0 +1,5 @@
+// wts with set equality and set builder
+let S = {n in N | n^2 < 10}. wts S = {0, 1, 2, 3}
+note that 3^2 = 9 < 10 and 4^2 = 16 >= 10.
+since n^2 is increasing on N, S contains exactly 0, 1, 2 and 3.
+qed

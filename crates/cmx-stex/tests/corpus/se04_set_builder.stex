@@ -1,0 +1,3 @@
+// set builder {x in Z | ...}, :=
+define E := {x in Z | x is even} and O := {x in Z | x is odd}.
+then E union O = Z and E intersect O = empty set.

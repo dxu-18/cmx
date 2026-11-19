@@ -1,0 +1,5 @@
+// keywords inside $$ become symbols, words become \text
+$exists x such that x = 5y$
+$for all x in Z, x^2 >= 0$
+$P implies Q iff not Q implies not P$
+$x in A and x not in B$

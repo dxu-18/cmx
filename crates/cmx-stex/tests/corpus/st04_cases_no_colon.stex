@@ -1,0 +1,6 @@
+// spec case example without colon on case 2
+let x in Z.
+case 1 x = 5:
+then x^2 = 25
+case 2 x != 5
+then x^2 != 25 or x = -5

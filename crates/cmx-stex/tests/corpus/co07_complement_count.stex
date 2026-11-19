@@ -1,0 +1,2 @@
+// complementary counting, at least one
+the number of 4-digit strings with at least one zero is 10^4 - 9^4 = 3439 by complementary counting.

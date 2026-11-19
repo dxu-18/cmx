@@ -1,0 +1,7 @@
+// st, st., exists ... st, thus
+let n in integers. suppose that n is odd.
+wts n^2 is odd
+by definition there is an integer k st n = 2k + 1.
+thus n^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1.
+hence n^2 is odd, as 2k^2 + 2k is an integer.
+qed

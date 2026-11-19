@@ -1,0 +1,5 @@
+// subseteq, let ... be sets
+let A, B, C be sets with A subseteq B and B subseteq C.
+wts A subseteq C
+let x in A. since A subseteq B, x in B. since B subseteq C, x in C.
+qed

@@ -1,0 +1,70 @@
+# stex theorem library (STEX-DESIGN §4, spec feature 11). One theorem per line:
+# prose name (as it appears after "by")<TAB>Lean 4 / Mathlib identifier ("-" = none)<TAB>aliases (|-separated)<TAB>statement (plain text)
+# Aliases are matched after "by" case-insensitively, ignoring "the", apostrophes and hyphens; "thm" = "theorem".
+# Lean identifiers: all checked with `#check` against Mathlib (Lean v4.36.0-rc2, 2026-11-13).
+the Chinese Remainder Theorem	Nat.chineseRemainder	crt|chinese remainder theorem|chinese remainder thm|chinese remainder|sunzi theorem|sunzis theorem|sun tzu theorem|sun tzus theorem	If m and n are coprime, then for all a, b there is k with k ≡ a (mod m) and k ≡ b (mod n), unique mod mn.
+Fermat's Little Theorem	Int.ModEq.pow_card_sub_one_eq_one	flt|fermats little theorem|fermat little theorem|fermats little thm|little fermat	If p is prime and p does not divide a, then a^(p-1) ≡ 1 (mod p).
+Euler's theorem	Nat.ModEq.pow_totient	euler|eulers theorem|euler theorem|euler totient theorem|eulers totient theorem|euler fermat	If gcd(a, n) = 1, then a^φ(n) ≡ 1 (mod n).
+Wilson's theorem	ZMod.wilsons_lemma	wilson|wilsons theorem|wilson theorem|wilsons lemma	For a prime p, (p-1)! ≡ -1 (mod p).
+Bézout's identity	Nat.gcd_eq_gcd_ab	bezout|bezouts identity|bezout identity|bezouts lemma|bezout lemma|bezouts theorem	For integers a, b there are x, y with ax + by = gcd(a, b).
+the Fundamental Theorem of Arithmetic	Nat.prod_primeFactorsList	fta|fundamental theorem of arithmetic|unique factorization|unique prime factorization	Every integer n ≥ 2 is a product of primes, uniquely up to order.
+Euclid's lemma	Nat.Prime.dvd_mul	euclids lemma|euclid lemma|euclid	If a prime p divides ab, then p divides a or p divides b.
+Euclid's theorem	Nat.exists_infinite_primes	euclids theorem|infinitude of primes|infinitely many primes	There are infinitely many primes.
+the division algorithm	Nat.div_add_mod	division algorithm|division lemma|euclidean division	For a and b > 0 there are unique q, r with a = bq + r and 0 ≤ r < b.
+the Euclidean algorithm	Nat.gcd_rec	euclidean algorithm|euclids algorithm	gcd(a, b) = gcd(b, a mod b).
+the Pigeonhole Principle	Finset.exists_ne_map_eq_of_card_lt_of_maps_to	php|pigeonhole|pigeonhole principle|pigeon hole principle|dirichlet box principle	If more than n objects are placed in n boxes, some box holds at least two objects.
+the triangle inequality	abs_add_le	triangle inequality|triangle ineq|the triangle inequality	|a + b| ≤ |a| + |b|.
+the reverse triangle inequality	abs_sub_abs_le_abs_sub	reverse triangle inequality	||a| - |b|| ≤ |a - b|.
+the AM–GM inequality	Real.geom_mean_le_arith_mean2_weighted	am gm|amgm|am gm inequality|arithmetic geometric mean inequality|inequality of arithmetic and geometric means	For nonnegative reals, the arithmetic mean is at least the geometric mean.
+the Cauchy–Schwarz inequality	norm_inner_le_norm	cauchy schwarz|cauchy schwarz inequality|cs|cauchy schwartz|cauchy bunyakovsky schwarz	|⟨u, v⟩| ≤ ‖u‖ ‖v‖.
+the Intermediate Value Theorem	intermediate_value_Icc	ivt|intermediate value theorem|intermediate value thm|bolzanos theorem	A continuous f on [a, b] takes every value between f(a) and f(b).
+the Mean Value Theorem	exists_deriv_eq_slope	mvt|mean value theorem|mean value thm|lagranges mean value theorem	If f is continuous on [a, b] and differentiable on (a, b), then f'(c) = (f(b) - f(a))/(b - a) for some c in (a, b).
+Rolle's theorem	exists_deriv_eq_zero	rolle|rolles theorem|rolle theorem	If f is continuous on [a, b], differentiable on (a, b) and f(a) = f(b), then f'(c) = 0 for some c in (a, b).
+the Extreme Value Theorem	IsCompact.exists_isMinOn	evt|extreme value theorem|weierstrass extreme value theorem	A continuous function on a compact set attains its maximum and minimum.
+the Fundamental Theorem of Calculus	intervalIntegral.integral_eq_sub_of_hasDerivAt	ftc|fundamental theorem of calculus|ftoc	If F' = f on [a, b], then ∫_a^b f = F(b) - F(a).
+the Squeeze Theorem	tendsto_of_tendsto_of_tendsto_of_le_of_le	squeeze theorem|sandwich theorem|squeeze lemma|sandwich lemma|squeeze	If g ≤ f ≤ h and g, h → L, then f → L.
+the Bolzano–Weierstrass Theorem	tendsto_subseq_of_bounded	bolzano weierstrass|bolzano weierstrass theorem|bw	Every bounded sequence in ℝⁿ has a convergent subsequence.
+the Heine–Borel Theorem	Metric.isCompact_iff_isClosed_bounded	heine borel|heine borel theorem	A subset of ℝⁿ is compact iff it is closed and bounded.
+the Binomial Theorem	add_pow	binomial theorem|binomial formula|binomial expansion	(x + y)^n = Σ_{k=0}^n C(n, k) x^k y^(n-k).
+Lagrange's theorem	Subgroup.card_subgroup_dvd_card	lagrange|lagranges theorem|lagrange theorem	The order of a subgroup of a finite group divides the order of the group.
+Cauchy's theorem	exists_prime_orderOf_dvd_card	cauchys theorem|cauchy theorem for groups	If a prime p divides |G|, then G has an element of order p.
+the Sylow theorems	Sylow.exists_subgroup_card_pow_prime	sylow|sylow theorems|sylows theorem|sylow theorem	A finite group has subgroups of every prime-power order dividing its order.
+the Cayley–Hamilton Theorem	Matrix.aeval_self_charpoly	cayley hamilton|cayley hamilton theorem	Every square matrix satisfies its characteristic polynomial.
+the Rank–Nullity Theorem	LinearMap.finrank_range_add_finrank_ker	rank nullity|rank nullity theorem|dimension theorem	dim(im T) + dim(ker T) = dim V.
+Cantor's theorem	Function.cantor_surjective	cantor|cantors theorem|cantor theorem|cantors diagonal argument|diagonalization	No function from a set onto its power set is surjective.
+the Schröder–Bernstein Theorem	Function.Embedding.schroeder_bernstein	schroeder bernstein|schroder bernstein|cantor bernstein|cantor schroeder bernstein	Injections A → B and B → A give a bijection A → B.
+the Archimedean property	exists_nat_gt	archimedean property|archimedean|archimedean principle	For every real x there is a natural number n > x.
+the density of the rationals	exists_rat_btwn	density of rationals|density of the rationals|rationals are dense	Between any two reals there is a rational.
+the geometric series formula	geom_sum_eq	geometric series|geometric sum|geometric series formula	Σ_{i<n} x^i = (x^n - 1)/(x - 1) for x ≠ 1.
+quadratic reciprocity	legendreSym.quadratic_reciprocity	quadratic reciprocity|law of quadratic reciprocity|qr	For odd primes p ≠ q, (p/q)(q/p) = (-1)^((p-1)(q-1)/4).
+the well-ordering principle	Nat.find	well ordering|well ordering principle|wop	Every nonempty set of natural numbers has a least element.
+De Morgan's laws	not_or	de morgan|de morgans laws|de morgans law|demorgan	¬(P ∨ Q) ↔ ¬P ∧ ¬Q and ¬(P ∧ Q) ↔ ¬P ∨ ¬Q.
+the Pythagorean theorem	EuclideanGeometry.dist_sq_eq_dist_sq_add_dist_sq_iff_angle_eq_pi_div_two	pythagoras|pythagorean theorem|pythagoras theorem	In a right triangle, a² + b² = c².
+Hall's marriage theorem	Finset.all_card_le_biUnion_card_iff_exists_injective	hall|halls theorem|halls marriage theorem|marriage theorem	A bipartite graph has a matching saturating X iff |N(S)| ≥ |S| for all S ⊆ X.
+the Well-Ordering Theorem	WellOrderingRel.isWellOrder	well ordering theorem|zermelo	Every set can be well-ordered.
+Zorn's lemma	zorn_le	zorn|zorns lemma	A nonempty poset whose chains have upper bounds has a maximal element.
+the Monotone Convergence Theorem	tendsto_atTop_ciSup	monotone convergence theorem|mct|monotone convergence	A bounded monotone sequence of reals converges.
+the ratio test	-	ratio test|dalemberts ratio test	If lim |a_{n+1}/a_n| < 1, then Σ a_n converges absolutely.
+the comparison test	Summable.of_nonneg_of_le	comparison test|direct comparison test	If 0 ≤ a_n ≤ b_n and Σ b_n converges, then Σ a_n converges.
+L'Hôpital's rule	HasDerivAt.lhopital_zero_nhds	lhopital|lhopitals rule|l hopital|lhospital|lhospitals rule|l hospitals rule	If f, g → 0 and f'/g' → L, then f/g → L.
+Taylor's theorem	taylor_mean_remainder_lagrange	taylor|taylors theorem|taylor theorem	A smooth function equals its Taylor polynomial plus a remainder term.
+induction	-	induction|mathematical induction|the principle of induction|weak induction	Proof by induction on n.
+strong induction	Nat.strong_induction_on	strong induction|complete induction	Proof by strong induction.
+the inductive hypothesis	-	ih|inductive hypothesis|induction hypothesis|the inductive hypothesis|the induction hypothesis	The statement for smaller cases.
+assumption	-	assumption|our assumption|the assumption|hypothesis|our hypothesis|the hypothesis|hyp	(a hypothesis already in context)
+definition	-	definition|def|defn|the definition	(unfolding a definition)
+symmetry	-	symmetry|a symmetric argument	(the symmetric case)
+construction	-	construction|our construction	(by how the object was built)
+the multiplication principle	Finset.card_product	multiplication principle|product rule|rule of product|multiplication rule|fundamental counting principle|product principle	If one choice has m options and an independent second choice has n, the pair has mn options: |A × B| = |A|·|B|.
+the addition principle	Finset.card_union_of_disjoint	addition principle|sum rule|rule of sum|addition rule|sum principle	For disjoint finite sets, |A ∪ B| = |A| + |B|.
+the principle of inclusion–exclusion	Finset.card_union_add_card_inter	inclusion exclusion|inclusion exclusion principle|pie|principle of inclusion exclusion	|A ∪ B| + |A ∩ B| = |A| + |B| (and its n-set generalisation).
+complementary counting	Finset.card_compl	complementary counting|complement counting|counting the complement	|Aᶜ| = |U| − |A| for a finite universe U.
+the bijection principle	Finset.card_bij	bijection principle|bijective proof|bijection	Finite sets in bijection have the same size.
+Pascal's rule	Nat.choose_succ_succ	pascal|pascals rule|pascals identity|pascal identity|pascals formula	C(n+1, k+1) = C(n, k) + C(n, k+1).
+Vandermonde's identity	Nat.add_choose_eq	vandermonde|vandermondes identity|vandermonde identity|vandermondes convolution	C(m+n, k) = Σ_i C(m, i) C(n, k−i).
+the hockey-stick identity	Nat.sum_Icc_choose	hockey stick|hockey stick identity|christmas stocking identity	Σ_{i=r}^{n} C(i, r) = C(n+1, r+1).
+the number of subsets	Finset.card_powerset	number of subsets|power set size|subsets count	A set with n elements has 2^n subsets.
+the binomial coefficient formula	Nat.choose_eq_factorial_div_factorial	binomial coefficient formula|choose formula|formula for binomial coefficients	C(n, k) = n! / (k! (n−k)!).
+stars and bars	Nat.multichoose_eq	stars and bars|stars bars|balls and urns	The number of multisets of size k from n kinds is C(n+k−1, k).
+double counting	Finset.sum_comm	double counting|counting in two ways|count in two ways	Summing a table by rows or by columns gives the same total.
+the factorial formula for permutations	Fintype.card_perm	number of permutations|permutations formula|factorial formula	There are n! permutations of n objects.

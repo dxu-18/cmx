@@ -1,0 +1,6 @@
+// composition, injective, for all x, y
+let f: A to B and g: B to C be injective functions.
+wts g o f is injective
+let x, y in A with (g o f)(x) = (g o f)(y). then g(f(x)) = g(f(y)).
+since g is injective, f(x) = f(y). since f is injective, x = y.
+qed

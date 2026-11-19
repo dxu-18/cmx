@@ -1,0 +1,10 @@
+// the user's prime.stex, verbatim
+wts there does not exist greatest prime
+
+afsoc there is a largest prime number. let P denote the largest prime number such that
+A = {p_1, p_2, ..., P}
+is the set of all prime numbers. then construct a number N such that
+N = (p_1 cross p_2 cross ... cross P) + 1
+note that for all p in A, N == 1 mod p implies it will always leave a remainder of 1.
+
+qed

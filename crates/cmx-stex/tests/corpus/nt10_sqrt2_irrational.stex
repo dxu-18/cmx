@@ -1,0 +1,9 @@
+// afsoc, there exist ... with, contradiction, lowest terms
+theorem: sqrt(2) is irrational
+proof
+aftsoc sqrt(2) is rational.
+then there exist p, q in Z with q != 0 and gcd(p, q) = 1 such that sqrt(2) = p/q.
+squaring, 2q^2 = p^2, so p^2 is even and hence p is even.
+write p = 2r for some r in Z. then 2q^2 = 4r^2, so q^2 = 2r^2 and q is even.
+thus 2 divides both p and q, contradicting gcd(p, q) = 1.
+qed

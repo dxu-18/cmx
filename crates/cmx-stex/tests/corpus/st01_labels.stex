@@ -1,0 +1,12 @@
+// all labels
+lemma: if n is even then n^2 is even.
+proof. write n = 2k. then n^2 = 4k^2. qed
+proposition: sqrt(4) = 2.
+corollary: 2 is rational.
+observation: 0 is even.
+remark: the converse also holds.
+fact: 1 is not prime.
+sublemma: 2 is prime.
+aside: primes are fun.
+definition: a number is even if it is divisible by 2.
+example: 6 is even.

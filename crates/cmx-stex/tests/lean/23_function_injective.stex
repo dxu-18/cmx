@@ -1,0 +1,7 @@
+// expect: ok
+define f: R to R via f(x) = 3x - 5
+let a, b in R. assume f(a) = f(b)
+wts a = b
+then 3a - 5 = 3b - 5, so 3a = 3b
+thus a = b
+qed

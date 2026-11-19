@@ -1,0 +1,3 @@
+// well-ordering principle, minimal counterexample
+suppose the claim fails for some n in N. by the well-ordering principle there is a least such n.
+then n > 0 and the claim holds for n - 1, which leads to a contradiction.

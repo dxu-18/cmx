@@ -1,0 +1,5 @@
+// Bezout, i.e., there exist x, y
+let a, b be positive integers and let d = gcd(a, b).
+by Bezout's identity there exist integers x and y such that ax + by = d.
+i.e. d is an integer linear combination of a and b.
+moreover every common divisor of a and b divides d.

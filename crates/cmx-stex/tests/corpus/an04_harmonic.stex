@@ -1,0 +1,3 @@
+// harmonic series diverges
+the harmonic series sum from n=1 to infinity of 1/n diverges.
+indeed 1/3 + 1/4 >= 1/2 and 1/5 + ... + 1/8 >= 1/2, and so on.

@@ -1,0 +1,19 @@
+[package]
+name = "cmx"
+description = "One CLI for everything: terminal IDE, stex, and more."
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "cmx"
+path = "src/main.rs"
+
+[dependencies]
+cmx-editor = { path = "../cmx-editor" }
+cmx-stex = { path = "../cmx-stex" }
+
+[dev-dependencies]
+cmx-sys = { path = "../cmx-sys" }
+cmx-tui = { path = "../cmx-tui" }
+cmx-vt = { path = "../cmx-vt" }

@@ -1,0 +1,4 @@
+// long prose with embedded math
+we now give the classical argument, which goes back to the ancient Greeks and is remarkably short.
+the key idea is that a number which is one more than a multiple of every prime cannot itself be divisible by any of those primes.
+so if p_1, ..., p_k were all the primes, the number p_1 ... p_k + 1 would have no prime factor at all, which is absurd.

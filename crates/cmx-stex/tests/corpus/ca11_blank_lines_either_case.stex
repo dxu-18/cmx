@@ -1,0 +1,12 @@
+// numbered cases with several paragraphs each, closed by "in either case"
+let p be a prime. wts p = 2 or p is odd
+case 1 p = 2.
+then the claim holds trivially.
+
+there is nothing more to show here.
+case 2 p != 2.
+suppose p is even. then 2 | p, and since p is prime, p = 2, a contradiction.
+
+hence p is odd.
+in either case, p = 2 or p is odd.
+qed

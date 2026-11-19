@@ -1,0 +1,2 @@
+// expect: fail 2
+there are 5 choose 2 = 11 ways to pick two of five items.

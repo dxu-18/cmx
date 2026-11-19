@@ -1,0 +1,6 @@
+// expect: ok
+let a, b in R. assume a <= b
+wts (a + b)/2 <= b
+note that a + b <= 2b
+thus (a + b)/2 <= b
+qed

@@ -1,0 +1,5 @@
+// assume not on an exists goal
+wts there exists n in N such that n^2 > 50
+assume not. then n^2 <= 50 for every n in N, but 8^2 = 64 > 50.
+contradiction
+qed

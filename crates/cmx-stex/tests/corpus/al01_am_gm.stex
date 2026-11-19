@@ -1,0 +1,7 @@
+// by AM-GM, sqrt, reals, >=
+let a, b be nonnegative real numbers.
+wts (a + b)/2 >= sqrt(ab)
+note that (sqrt(a) - sqrt(b))^2 >= 0.
+expanding, a - 2 sqrt(ab) + b >= 0, so a + b >= 2 sqrt(ab).
+dividing by 2 gives the claim. this is the AM-GM inequality.
+qed

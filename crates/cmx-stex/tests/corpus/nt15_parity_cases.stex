@@ -1,0 +1,6 @@
+// case analysis on parity, cases with colons
+let n in Z. wts n(n + 1) is even
+case 1 n is even: then n = 2m for some m, so n(n+1) = 2m(n+1) is even.
+case 2 n is odd: then n + 1 is even, so n(n+1) is even.
+in both cases n(n + 1) is even.
+qed

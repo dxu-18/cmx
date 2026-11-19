@@ -1,0 +1,4 @@
+// &&, ||, and, or in prose and in $$
+let x in R with x > 0 && x < 1.
+then x > 0 || x < -1 fails only if -1 <= x <= 0.
+in symbols $x > 0 and x < 1 implies x^2 < 1$.

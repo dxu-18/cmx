@@ -1,0 +1,4 @@
+// expect: ok
+let a, b in Z. assume 3 divides a and 3 divides b
+wts 3 divides a + b
+qed

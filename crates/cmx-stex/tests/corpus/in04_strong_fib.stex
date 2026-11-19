@@ -1,0 +1,8 @@
+// strong induction, Fibonacci, F_n < 2^n
+let F_0 = 0, F_1 = 1 and F_(n+1) = F_n + F_(n-1) for n >= 1.
+theorem: for all n in N, F_n < 2^n
+proof
+we proceed by strong induction on n.
+case 1 n = 0 or n = 1: then F_n <= 1 < 2^n.
+case 2 n >= 2: then F_n = F_(n-1) + F_(n-2) < 2^(n-1) + 2^(n-2) < 2^n by the inductive hypothesis.
+qed

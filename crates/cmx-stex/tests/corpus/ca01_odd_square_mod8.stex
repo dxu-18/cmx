@@ -1,0 +1,20 @@
+// the user's odd8 proof: unlabeled cases, blank lines inside a case, "in all exhaustive cases"
+wts x is odd implies 8 divides x^2 - 1
+
+assume x is odd. then exists k in integers such that x = 2k + 1. then
+$
+x^2 - 1 = (2k + 1)^2 - 1 = (4k^2 + 4k + 1) - 1 = 4k^2 + 4k
+$
+
+case k is odd. then exists l in integers st k = 2l + 1. then
+$4k^2 + 4k = 4(2l+1)^2 + 4(2l+1) = 4(4l^2 + 4l + 1) + 4(2l+1) = 8(2l^2+2l) + 8 + 8l = 8 (2l^2+3l+1)$
+
+Observe (2l^2+3l+1) in integers, so by definition of divisibility, 8 | (x^2 - 1).
+
+case k is even. then exists l in integers st k = 2l. then 4k^2 + 4k = 4 * 4l^2 + 8l = 8 (2l^2+l).
+
+Observe (2l^2+l) in integers, so by definition of divisibility 8 | (x^2 - 1).
+
+In all exhaustive cases, 8 | (x^2 - 1), and thus x is odd implies 8 | (x^2 - 1).
+
+qed

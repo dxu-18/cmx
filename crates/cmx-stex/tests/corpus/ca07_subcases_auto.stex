@@ -1,0 +1,12 @@
+// auto-numbered sub-cases inside auto-numbered cases, with a nested opener
+let x, y in Z. wts xy is odd iff x and y are both odd
+case x is even
+then xy = x * y is even for any y.
+case x is odd
+exhaustive cases
+subcase y is even
+then xy is even.
+subcase y is odd
+then x = 2a + 1 and y = 2b + 1 for some a, b in Z, so xy = 2(2ab + a + b) + 1 is odd.
+in either case, xy is odd exactly when x and y are both odd
+qed

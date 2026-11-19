@@ -1,0 +1,5 @@
+// let ... be arbitrary, fix, gcd, lcm
+fix a, b in N with a, b > 0.
+let d = gcd(a, b) and let m = lcm(a, b).
+then dm = ab.
+in particular d <= min(a, b) and m >= max(a, b).

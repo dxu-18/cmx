@@ -1,0 +1,4 @@
+// expect: fail 4
+for all x in R, x^2 > x
+proof. let x in R. wts x^2 > x
+qed

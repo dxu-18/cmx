@@ -1,0 +1,3 @@
+// define ... via, spec example
+define f: N to N via f(x) = 2x^34 + 7
+then f(0) = 7 and f(1) = 9.

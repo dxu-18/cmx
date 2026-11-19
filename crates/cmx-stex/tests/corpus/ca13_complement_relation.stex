@@ -1,0 +1,11 @@
+// complementary relations, the bare closer, and a later second analysis
+let x, y be reals. wts min(x, y) <= max(x, y)
+case x <= y. then min(x, y) = x <= y = max(x, y).
+case x > y. then min(x, y) = y < x = max(x, y).
+these cases are exhaustive.
+
+next we show |x - y| = max(x, y) - min(x, y).
+case 1 x <= y. then |x - y| = y - x.
+case 2 x > y. then |x - y| = x - y.
+in both cases, |x - y| = max(x, y) - min(x, y).
+qed

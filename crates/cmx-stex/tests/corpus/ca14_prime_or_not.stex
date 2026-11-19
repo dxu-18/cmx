@@ -1,0 +1,6 @@
+// a predicate and its negation; "exhaustive b/c" after the cases, then "so P"
+let n be an integer with n >= 2. wts n has a prime divisor
+case n is prime. then n is a prime divisor of n.
+case n is not prime. then n = ab for some integers a, b with 1 < a < n and 1 < b < n, and by induction a has a prime divisor p, which also divides n.
+exhaustive b/c every integer is either prime or not, so n has a prime divisor
+qed

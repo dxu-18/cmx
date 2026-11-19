@@ -1,0 +1,3 @@
+// lattice paths, choose, right and up steps
+a lattice path from (0, 0) to (m, n) using unit steps right and up has m + n steps, of which m are right steps.
+so there are (m + n) choose m such paths.

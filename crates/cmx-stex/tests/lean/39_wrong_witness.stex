@@ -1,0 +1,4 @@
+// expect: fail 4
+wts exists x in Z such that x^2 = 50
+choose x = 7.
+qed

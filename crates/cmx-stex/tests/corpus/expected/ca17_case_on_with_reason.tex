@@ -1,0 +1,17 @@
+Let $n$ be an integer.
+We show that $n^{3} - n$ is divisible by $3$.
+We proceed by case analysis on $n \bmod 3$.
+The following cases are exhaustive, because every integer leaves remainder $0$, $1$, or $2$ when divided by $3$.
+
+\begin{itemize}
+  \item Case 1: Suppose $n \bmod 3 = 0$.
+    Then $3 \mid n$, so $3 \mid n^{3} - n$.
+  \item Case 2: Suppose $n \bmod 3 = 1$.
+    Then $3 \mid n - 1$, so $3 \mid n^{3} - n = (n - 1)n(n + 1)$.
+  \item Case 3: Suppose $n \bmod 3 = 2$.
+    Then $3 \mid n + 1$, so $3 \mid n^{3} - n$.
+\end{itemize}
+
+These cases are exhaustive.
+In all exhaustive cases, $3 \mid n^{3} - n$.
+Hence $n^{3} - n$ is divisible by $3$, as required. \hfill$\square$

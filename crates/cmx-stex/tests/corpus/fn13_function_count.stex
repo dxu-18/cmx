@@ -1,0 +1,3 @@
+// number of functions |B|^|A|
+let A and B be finite sets with |A| = m and |B| = n.
+then the number of functions from A to B is n^m, and the number of injections is n!/(n - m)! when m <= n.

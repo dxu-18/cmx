@@ -52,7 +52,7 @@ Features:
 10- auto detection of sentence boundaries, and autocapitalization and punctuation of sentences.
     Saying “let x = 5, let y = 6, let z = 7” and “let x = 5. let y = 6. let z = 7” should be
     different, and render in the .tex as “Let $x = 5$, let $y = 6$, and let $z = 7$” and “Let $x =
-    5$. Let $x = 6$. Let $z = 7$.” respectively
+    5$. Let $y = 6$. Let $z = 7$.” respectively
 11- an internal library of all 200,000 lean theorems, written in lean, to use for verifying the
     proofs. If a user writes in stex “let x,y in Z, let m,n be moduli, x ==  exists k in integers
     s.t. k == m mod n by the Chinese Remainder Theorem” — it should detect that the CRT was invoked,
@@ -684,6 +684,10 @@ for every x, P(x): invokes prose equivalent to "For every(default)/all/each $x$,
 =: yields $=$, ex. x = 5 yields $x = 5$
 ==: yield $\equiv$, ex. x == 5 mod 6 yields $x=$
 
+{}: should just be used for sets, e.g. $\{\}$
+
+define ... via / := : defines a function, set, relation, etc.. The stex compiler should then keep track of the definition. 
+
 mod n: yields $\pmod{n}$ (detects an \equiv nearby), or $\bmod$
 %: yields $\bmod$ or $\%$ if a number preceeds it
     ex. 5% % 6% yields $5\% \bmod{}$
@@ -700,7 +704,7 @@ cross: yields \times
     Note: parse divides like normal text PEMDAS; a+b/c yields a + \frac{b}{c}, but (a+b)/c yields \frac{a+b}{c}.
     Let parentheses clarify.
 
-
++, -, +-, -+, (), [], ><, >=, <=: use as normal arithmetic, grouping, or comparison operations
 
 b/c / because/since/by (either prose or an expression, not a theorem): invokes prose equivalent to because/since/due to/ as a result, etc.
         In --fixed, explicitly use either one of them exactly. In natural, extend to other synonyms like "due to" or 

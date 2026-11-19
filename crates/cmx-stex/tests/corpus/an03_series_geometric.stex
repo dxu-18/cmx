@@ -1,0 +1,3 @@
+// series sum from n=0 to infinity
+for |r| < 1, sum from n=0 to infinity of r^n = 1/(1 - r).
+in particular sum from n=1 to infinity of 1/2^n = 1.

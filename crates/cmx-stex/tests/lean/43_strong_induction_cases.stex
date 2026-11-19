@@ -1,0 +1,7 @@
+// expect: ok
+theorem: for all n in N, n(n + 1) is even
+proof
+we proceed by strong induction on n.
+case 1 n is even: then n(n + 1) is even
+case 2 n is odd: then n + 1 is even, so n(n + 1) is even
+qed

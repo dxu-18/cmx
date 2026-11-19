@@ -1,0 +1,2 @@
+// inclusion-exclusion
+let A, B be finite sets. by inclusion-exclusion, |A union B| = |A| + |B| - |A intersect B|.

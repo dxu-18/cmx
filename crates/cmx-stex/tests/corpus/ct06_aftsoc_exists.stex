@@ -1,0 +1,4 @@
+// afsoc with exists inside
+afsoc exists x in Q such that x^2 = 2.
+write x = p/q in lowest terms. then p^2 = 2q^2, so p and q are both even.
+this contradicts that p/q is in lowest terms.

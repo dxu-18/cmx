@@ -1,0 +1,11 @@
+\textit{Theorem.} For every $n \geq 1$, a $2^{n}$ by $2^{n}$ board with one square removed can be tiled by L-shaped trominoes.
+
+\textit{Proof.} We proceed by induction on $n$.
+
+\textit{Base case} ($n = 1$). A $2$ by 2 board with one square removed is itself an L-tromino.
+
+\textit{Inductive step.} Assume the claim for $2^{k}$ by $2^{k}$ boards.
+Split a $2^{k + 1}$ by $2^{k + 1}$ board into four $2^{k}$ by $2^{k}$ quadrants.
+Place one tromino at the center covering one square of each quadrant without the removed square.
+By the inductive hypothesis, each quadrant can now be tiled.
+Hence for every $n \geq 1$, a $2^{n}$ by $2^{n}$ board with one square removed can be tiled by L-shaped trominoes, as required. \hfill$\square$

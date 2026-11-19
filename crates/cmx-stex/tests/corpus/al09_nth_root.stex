@@ -1,0 +1,3 @@
+// nrt: 3rt(5), 7rt 6, cube root
+note that 3rt(8) = 2 and 7rt 6 > 1.
+more generally for every x > 0 and n in N with n >= 1, nrt x is the unique positive y with y^n = x.

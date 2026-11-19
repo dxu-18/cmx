@@ -1,0 +1,4 @@
+// bold/italic/underline word and blocks
+this is bold important and italic subtle and underline key.
+bold { the main theorem holds } and it { only for n > 2 } but ul {never for n = 1}.
+bf{short form} works too, as do it {slanted} and ul{lined}.

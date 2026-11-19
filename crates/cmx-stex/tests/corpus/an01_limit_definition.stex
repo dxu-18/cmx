@@ -1,0 +1,5 @@
+// limit as n to infinity of 1/n = 0, epsilon N
+wts limit as n to infinity of 1/n = 0
+let epsilon > 0 be arbitrary. choose N in N with N > 1/epsilon.
+then for all n >= N, |1/n - 0| = 1/n <= 1/N < epsilon.
+qed

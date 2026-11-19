@@ -1,0 +1,3 @@
+// by the fundamental theorem of arithmetic, unique factorization
+remark: by the fundamental theorem of arithmetic every n > 1 can be written as p_1^(e_1) p_2^(e_2) ... p_r^(e_r) with distinct primes p_i.
+this factorization is unique up to the order of the factors.

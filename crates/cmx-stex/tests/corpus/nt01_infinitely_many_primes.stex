@@ -1,0 +1,10 @@
+// number theory: afsoc + there is + ellipsis + cross + set + mod
+theorem: there are infinitely many primes
+proof
+afsoc there are only finitely many primes, say p_1, p_2, ..., p_k.
+let N = p_1 cross p_2 cross ... cross p_k + 1.
+then N > 1, so N has a prime divisor q.
+since q is one of the p_i, q divides p_1 p_2 ... p_k.
+thus q divides N - p_1 p_2 ... p_k = 1, which is impossible since q > 1.
+contradiction
+qed

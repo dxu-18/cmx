@@ -1,0 +1,8 @@
+// singular and plural existential binders
+let m, n be odd integers.
+then exists k in integers st m = 2k + 1.
+there are l in integers such that n = 2l + 1.
+there is integers a, b such that m = 2a + 1 and n = 2b + 1.
+there exist j in N with j > n.
+there are no integer x such that x^2 = 2.
+therefore m + n = 2(a + b + 1) is even.

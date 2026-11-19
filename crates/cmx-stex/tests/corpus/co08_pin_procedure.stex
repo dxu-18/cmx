@@ -1,0 +1,7 @@
+// n-step process, stage
+we count the 4-digit PINs with no repeated digit.
+stage 1: pick the first digit in 10 ways.
+stage 2: pick the second digit in 9 ways.
+stage 3: pick the third digit in 8 ways.
+stage 4: pick the fourth digit in 7 ways.
+altogether there are 10 * 9 * 8 * 7 = 5040 such PINs.

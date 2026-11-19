@@ -1,0 +1,19 @@
+Let $x, y \in \mathbb{Z}$.
+We show that $x^{2} + y^{2}$ is not $3 \bmod 4$.
+We proceed by case analysis on $x$.
+
+\begin{itemize}
+  \item Case 1: Suppose $x$ is even.
+    $x^{2} \equiv 0 \pmod{4}$.
+    We proceed by case analysis on $y$.
+    \begin{itemize}
+      \item Subcase 1.1: Suppose $y$ is even.
+        Then $x^{2} + y^{2} \equiv 0 \pmod{4}$.
+      \item Subcase 1.2: Suppose $y$ is odd.
+        Then $x^{2} + y^{2} \equiv 1 \pmod{4}$.
+    \end{itemize}
+  \item Case 2: Suppose $x$ is odd.
+    $x^{2} \equiv 1 \pmod{4}$, and $y^{2}$ is $0$ or $1 \bmod 4$, so $x^{2} + y^{2}$ is $1$ or $2 \bmod 4$.
+\end{itemize}
+
+In either case, $x^{2} + y^{2}$ is not $3 \bmod 4$. \hfill$\square$

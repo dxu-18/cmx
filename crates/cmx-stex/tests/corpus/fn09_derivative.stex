@@ -1,0 +1,3 @@
+// derivative of f with respect to x, wrt
+let f(x) = x^3 + 2x. then the derivative of f with respect to x is 3x^2 + 2.
+also the derivative of sin(x) wrt x is cos(x).

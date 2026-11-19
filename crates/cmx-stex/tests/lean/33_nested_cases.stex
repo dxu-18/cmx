@@ -1,0 +1,8 @@
+// expect: ok
+let n in Z. wts n^2 + n is even
+case 1 n is even: then n^2 + n = n(n+1) is even
+case 2 n is odd:
+case 2a n = 1: then n^2 + n = 2
+case 2b n != 1: then n + 1 is even
+in either case n^2 + n is even
+qed

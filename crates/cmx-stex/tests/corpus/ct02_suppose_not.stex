@@ -1,0 +1,6 @@
+// suppose not, contradiction
+let x in R. assume x^2 < 4.
+wts x < 2
+suppose not. then x >= 2, so x^2 >= 4.
+this is a contradiction.
+qed

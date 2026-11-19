@@ -1,0 +1,8 @@
+[package]
+name = "cmx-stex"
+description = "stex: deterministic near-natural-language proofs → LaTeX (and Lean)."
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]

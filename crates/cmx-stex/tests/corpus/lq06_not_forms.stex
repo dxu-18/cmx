@@ -1,0 +1,7 @@
+// spec negation forms
+let not x = 5
+let x not = 5
+let x not equals 5
+let x neq 5
+let x != 5
+let !x = 5

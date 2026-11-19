@@ -1,0 +1,6 @@
+// a bare opener: the justification is derived from the case conditions
+let n be an integer. wts n^3 - n is divisible by 2
+exhaustive cases
+case n is even. then n^3 and n are both even, so n^3 - n is even.
+case n is odd. then n^3 and n are both odd, so n^3 - n is even.
+qed

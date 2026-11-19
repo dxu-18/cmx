@@ -1,0 +1,5 @@
+// expect: ok
+let x in R. assume x^2 = 9
+wts x = 3 or x = -3
+then (x - 3)(x + 3) = 0
+qed

@@ -1,0 +1,8 @@
+// expect: ok
+theorem: for all n in N, 3 divides n^3 + 2n
+proof
+we proceed by induction on n.
+base case n = 0: 0^3 + 2 * 0 = 0
+inductive step: assume 3 divides k^3 + 2k.
+then (k + 1)^3 + 2(k + 1) = (k^3 + 2k) + 3(k^2 + k + 1)
+qed

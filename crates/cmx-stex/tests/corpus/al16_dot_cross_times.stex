@@ -1,0 +1,4 @@
+// dot, cross, times, *, explicit math with cross
+note that 2 * 3 = 6, 2 dot 3 = 6 and 2 times 3 = 6.
+in math mode $a cross b$ and $a times b$ both mean the product, and $u dot v$ is a dot product.
+for vectors in R^3 the cross product u cross v is orthogonal to u and v.

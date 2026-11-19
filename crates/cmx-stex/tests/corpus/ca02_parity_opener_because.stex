@@ -1,0 +1,9 @@
+// opener with a reason (b/c), auto-numbered cases, closing transition
+let x in integers. wts x^2 + x is even
+cases exhaustive b/c x in integers is either even or odd
+case x is odd
+then x = 2k + 1 for some k in integers, so x^2 + x = (2k+1)(2k+2) = 2(2k+1)(k+1).
+case x is even
+then x = 2k for some k in integers, so x^2 + x = 2k(2k+1) = 2(k(2k+1)).
+in all exhaustive cases, x^2 + x is even
+qed

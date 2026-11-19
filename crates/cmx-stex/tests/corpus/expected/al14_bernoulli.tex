@@ -1,0 +1,11 @@
+\textit{Theorem.} For all $n \in \mathbb{N}$ and every $x \geq -1$, $(1 + x)^{n} \geq 1 + nx$.
+
+\textit{Proof.} Let $x \geq -1$.
+We proceed by induction on $n$.
+
+\textit{Base case} ($n = 0$). $(1 + x)^{0} = 1 = 1 + 0x$.
+
+\textit{Inductive step.} Suppose that $(1 + x)^{k} \geq 1 + kx$ for some $k \in \mathbb{N}$.
+Then $(1 + x)^{k + 1} = (1 + x)^{k}(1 + x) \geq (1 + kx)(1 + x)$ since $1 + x \geq 0$.
+And $(1 + kx)(1 + x) = 1 + (k + 1)x + kx^{2} \geq 1 + (k + 1)x$.
+Hence for all $n \in \mathbb{N}$ and every $x \geq -1$, $(1 + x)^{n} \geq 1 + nx$, as required. \hfill$\square$

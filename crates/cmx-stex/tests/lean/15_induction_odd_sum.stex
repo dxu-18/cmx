@@ -1,0 +1,8 @@
+// expect: ok
+theorem: for all n in N, sum from i=1 to n of (2i - 1) = n^2
+proof
+we proceed by induction on n.
+base case n = 0: sum from i=1 to 0 of (2i - 1) = 0
+inductive step: assume sum from i=1 to k of (2i - 1) = k^2.
+then sum from i=1 to k+1 of (2i - 1) = k^2 + 2(k+1) - 1 = (k + 1)^2
+qed

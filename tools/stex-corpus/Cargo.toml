@@ -1,0 +1,8 @@
+[package]
+name = "stex-corpus"
+description = "Dev tool: phrase-frequency analysis of mathematical proofs (feeds cmx-stex/data/phrases.txt)."
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]

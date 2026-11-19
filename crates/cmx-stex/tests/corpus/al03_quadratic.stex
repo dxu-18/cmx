@@ -1,0 +1,6 @@
+// implies chain in display, or, x^2 = 9
+let x in R. suppose x^2 = 9.
+$
+x^2 = 9 implies x^2 - 9 = 0 by subtraction, implies (x+3)(x-3) = 0 by factoring, implies x = 3 or x = -3 by the zero product property
+$
+therefore x = 3 or x = -3.

@@ -1,0 +1,10 @@
+// cases inside a step, with a paragraph after the cases that belongs to the step
+let n in N. wts n^2 mod 4 is 0 or 1
+step 1: reduce to parity.
+case n is even. then n = 2k and n^2 = 4k^2.
+case n is odd. then n = 2k + 1 and n^2 = 4(k^2 + k) + 1.
+
+so n^2 leaves remainder 0 or 1 upon division by 4.
+step 2: conclude.
+n^2 mod 4 is 0 or 1.
+qed

@@ -1,0 +1,23 @@
+Let $x, y$ be reals.
+We show that $\min(x, y) \leq \max(x, y)$.
+
+\begin{itemize}
+  \item Case 1: Suppose $x \leq y$.
+    Then $\min(x, y) = x \leq y = \max(x, y)$.
+  \item Case 2: Suppose $x > y$.
+    Then $\min(x, y) = y < x = \max(x, y)$.
+\end{itemize}
+
+These cases are exhaustive.
+
+Next we show $\lvert x - y \rvert = \max(x, y) - \min(x, y)$.
+
+\begin{itemize}
+  \item Case 1: Suppose $x \leq y$.
+    Then $\lvert x - y \rvert = y - x$.
+  \item Case 2: Suppose $x > y$.
+    Then $\lvert x - y \rvert = x - y$.
+\end{itemize}
+
+In both cases, $\lvert x - y \rvert = \max(x, y) - \min(x, y)$.
+Hence $\min(x, y) \leq \max(x, y)$, as required. \hfill$\square$

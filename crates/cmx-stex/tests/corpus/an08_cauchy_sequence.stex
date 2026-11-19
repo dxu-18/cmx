@@ -1,0 +1,3 @@
+// Cauchy sequence, for all m, n >= N
+a sequence (x_n) is Cauchy if for every epsilon > 0 there exists N such that |x_m - x_n| < epsilon for all m, n >= N.
+every convergent sequence of real numbers is Cauchy.

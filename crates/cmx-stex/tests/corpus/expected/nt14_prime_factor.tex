@@ -1,0 +1,14 @@
+\textit{Theorem.} Every integer $n \geq 2$ has a prime divisor.
+
+\textit{Proof.} We proceed by strong induction on $n$.
+
+\begin{itemize}
+  \item Case 1: Suppose $n$ is prime.
+    Then $n$ itself is a prime divisor of $n$.
+  \item Case 2: Suppose $n$ is not prime.
+    Then $n = ab$ for some integers $a$, $b$ with $1 < a < n$.
+    By the inductive hypothesis, $a$ has a prime divisor $p$, and $p \mid n$ since $p \mid a$ and $a \mid n$.
+\end{itemize}
+
+In either case, $n$ has a prime divisor.
+Hence every integer $n \geq 2$ has a prime divisor, as required. \hfill$\square$

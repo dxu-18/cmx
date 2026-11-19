@@ -1,0 +1,8 @@
+// expect: fail 5
+theorem: for all n in N, 2^n >= n + 2
+proof
+we proceed by induction on n.
+base case n = 0: 2^0 = 1 >= 2
+inductive step: assume 2^k >= k + 2.
+then 2^(k+1) = 2 * 2^k >= 2(k + 2) >= k + 3
+qed

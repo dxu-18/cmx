@@ -1,0 +1,6 @@
+// "case on k" announces the analysis; no exhaustiveness sentence is added
+let k be an integer. wts k^2 - k is even
+case on k
+case k is even. then k = 2m for some m in Z, so k^2 - k = 2m(2m - 1) is even.
+case k is odd. then k - 1 = 2m for some m in Z, so k^2 - k = k(k - 1) = 2km is even.
+qed

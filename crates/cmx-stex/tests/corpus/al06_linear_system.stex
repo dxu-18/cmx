@@ -1,0 +1,5 @@
+// let ... = , and, solve, i.e.
+let x, y in R s.t. x + y = 5 and x - y = 1.
+adding the equations gives 2x = 6, i.e. x = 3.
+then y = 5 - x = 2.
+so the unique solution is (x, y) = (3, 2).

@@ -1,0 +1,4 @@
+// expect: ok
+wts exists x in Z such that 3x == 1 mod 7
+choose x = 5. then 3 * 5 = 15 == 1 mod 7
+qed

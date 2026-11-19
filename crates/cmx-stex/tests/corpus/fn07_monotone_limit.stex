@@ -1,0 +1,3 @@
+// limit as n to infinity of a_n, bounded monotone
+let (a_n) be an increasing sequence of reals that is bounded above.
+then limit as n to infinity of a_n exists and equals sup {a_n | n in N}.

@@ -1,0 +1,4 @@
+// n!, arrangements, the number of permutations
+the number of ways to arrange n distinct books on a shelf is n!.
+for n = 5 there are 5! = 120 arrangements.
+if two particular books must be adjacent there are 2 * 4! = 48 arrangements.

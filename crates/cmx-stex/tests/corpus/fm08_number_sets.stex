@@ -1,0 +1,4 @@
+// integers, reals, naturals, rationals, complex numbers, field
+let x in integers, y in reals, z in naturals and q in rationals.
+also let w in complex numbers and let F be a field.
+the natural numbers are a subset of the integers.

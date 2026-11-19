@@ -1,0 +1,4 @@
+// expect: ok
+let m, n in Z. assume m is odd and n is odd
+wts m + n is even
+qed

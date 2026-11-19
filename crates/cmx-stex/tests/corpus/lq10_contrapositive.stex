@@ -1,0 +1,5 @@
+// contrapositive proof with suppose, not
+wts if n^2 is even then n is even
+we prove the contrapositive. suppose n is odd, so n = 2k + 1 for some k in Z.
+then n^2 = 2(2k^2 + 2k) + 1 is odd.
+qed

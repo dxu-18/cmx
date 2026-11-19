@@ -1,0 +1,5 @@
+// sum from i=0 to k of, mod 9
+let n = sum from i=0 to k of a_i 10^i where each a_i is a digit.
+since 10 == 1 mod 9, we have 10^i == 1 mod 9 for every i.
+hence n == sum from i=0 to k of a_i mod 9.
+so 9 divides n iff 9 divides the sum of the digits of n.

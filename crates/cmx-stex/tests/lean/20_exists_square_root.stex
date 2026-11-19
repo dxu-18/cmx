@@ -1,0 +1,4 @@
+// expect: ok
+wts exists x in Z such that x^2 = 49
+choose x = 7. then 7^2 = 49
+qed

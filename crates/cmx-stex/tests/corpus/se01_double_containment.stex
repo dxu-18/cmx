@@ -1,0 +1,7 @@
+// sets: A \ (A \ B) = A intersect B, double containment
+let A, B be sets. wts A \ (A \ B) = A intersect B
+let x in A \ (A \ B). then x in A and x not in A \ B, so x in B.
+thus x in A intersect B.
+conversely let x in A intersect B. then x in A and x in B, so x not in A \ B.
+hence x in A \ (A \ B).
+by double containment qed

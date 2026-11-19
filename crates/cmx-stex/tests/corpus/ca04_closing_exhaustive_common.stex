@@ -1,0 +1,6 @@
+// "exhaustive" alone after the cases: justification plus the common conclusion
+let n in Z. wts n(n + 1) is even
+case n = 2m for some m in Z. then n(n+1) = 2m(2m + 1). hence n(n+1) is even.
+case n = 2m + 1 for some m in Z. then n + 1 = 2(m + 1), so n(n+1) = 2n(m+1). hence n(n+1) is even.
+exhaustive
+qed

@@ -1,0 +1,4 @@
+// expect: ok
+wts exists k in N such that k == 2 mod 3 and k == 3 mod 5
+choose k = 8. then 8 == 2 mod 3 and 8 == 3 mod 5 by CRT
+qed

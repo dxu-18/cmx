@@ -1,0 +1,5 @@
+// by CRT, == mod, and, s.t.
+claim: there exists k in N s.t. k == 2 mod 3 and k == 3 mod 5.
+proof. since gcd(3, 5) = 1, by CRT there is a unique k mod 15 with k == 2 mod 3 and k == 3 mod 5.
+indeed k = 8 works: 8 == 2 mod 3 and 8 == 3 mod 5.
+qed

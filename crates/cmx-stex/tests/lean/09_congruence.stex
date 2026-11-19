@@ -1,0 +1,5 @@
+// expect: ok
+let x in Z. assume x == 2 mod 5
+wts x^2 == 4 mod 5
+then x^2 == 2^2 mod 5 and 2^2 = 4
+qed

@@ -1,0 +1,8 @@
+// induction, n^2 <= 2^n for n >= 4
+theorem: for all n >= 4, n^2 <= 2^n
+proof
+we proceed by induction on n.
+base case n = 4: 4^2 = 16 = 2^4.
+inductive step: assume k^2 <= 2^k for some k >= 4.
+then (k+1)^2 = k^2 + 2k + 1 <= 2k^2 <= 2 * 2^k = 2^(k+1), since 2k + 1 <= k^2 for k >= 4.
+qed

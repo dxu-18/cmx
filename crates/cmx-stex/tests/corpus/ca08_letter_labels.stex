@@ -1,0 +1,7 @@
+// explicit letter labels ("case k n = 1") next to conditions that start with a letter
+let n be a positive integer. wts 2^n >= n + 1
+case k n = 1: then 2^1 = 2 = n + 1.
+case k n > 1: then 2^n = 2 * 2^(n-1) >= 2n >= n + 1.
+case x:
+the argument above covers every n.
+qed

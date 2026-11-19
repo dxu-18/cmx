@@ -1,0 +1,4 @@
+// expect: ok
+let x, y in Z. wts x^2 - y^2 = (x - y)(x + y)
+then (x - y)(x + y) = x^2 + xy - yx - y^2 = x^2 - y^2
+qed

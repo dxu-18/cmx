@@ -1,0 +1,9 @@
+// strong induction, every n >= 2 has a prime factor
+theorem: every integer n >= 2 has a prime divisor
+proof
+we proceed by strong induction on n.
+case 1 n is prime: then n itself is a prime divisor of n.
+case 2 n is not prime: then n = ab for some integers a, b with 1 < a < n.
+by the inductive hypothesis a has a prime divisor p, and p divides n since p | a and a | n.
+in either case n has a prime divisor.
+qed

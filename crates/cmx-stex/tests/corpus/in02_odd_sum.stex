@@ -1,0 +1,8 @@
+// induction with (2i - 1), n-th odd number
+theorem: for all n in N, sum from i=1 to n of (2i - 1) = n^2
+proof
+we proceed by induction on n.
+base case n = 0: the empty sum is 0 = 0^2.
+inductive step: assume sum from i=1 to k of (2i - 1) = k^2.
+the (k+1)st odd number is 2(k+1) - 1 = 2k + 1, so the sum up to k+1 is k^2 + 2k + 1 = (k + 1)^2.
+qed

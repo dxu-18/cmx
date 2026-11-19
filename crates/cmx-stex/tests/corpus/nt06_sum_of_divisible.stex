@@ -1,0 +1,7 @@
+// s.t (no final dot), with, it follows that
+let a, b, d in Z w/ d != 0. assume d divides a and d divides b.
+wts d divides a + b and d divides a - b
+there are integers m, n s.t a = dm and b = dn.
+it follows that a + b = d(m + n) and a - b = d(m - n).
+consequently d | a + b and d | a - b.
+qed

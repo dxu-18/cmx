@@ -1,0 +1,12 @@
+[package]
+name = "cmx-editor"
+description = "The cmx terminal IDE (cmx edit / cmx workspace)."
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+cmx-sys = { path = "../cmx-sys" }
+cmx-tui = { path = "../cmx-tui" }
+cmx-vt = { path = "../cmx-vt" }
+cmx-stex = { path = "../cmx-stex" }

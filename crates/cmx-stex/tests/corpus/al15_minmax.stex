@@ -1,0 +1,2 @@
+// max, min, |a - b|
+let a, b in R. then max(a, b) = (a + b + |a - b|)/2 and min(a, b) = (a + b - |a - b|)/2.

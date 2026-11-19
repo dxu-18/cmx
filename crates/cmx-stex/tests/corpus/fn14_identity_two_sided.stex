@@ -1,0 +1,4 @@
+// left inverse, right inverse, wlog
+suppose g is a left inverse and h is a right inverse of f.
+then g = g o (f o h) = (g o f) o h = h.
+wlog we may write f^(-1) for this common inverse.

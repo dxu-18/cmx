@@ -1,0 +1,2 @@
+// latex{} raw
+we write latex{\exists} for the existential quantifier and latex{\mathcal{O}(n^2)} for the running time.

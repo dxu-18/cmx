@@ -1,0 +1,2 @@
+// intervals and between
+let I = {x in R | 0 <= x <= 1}. then x in I iff x is between 0 and 1.

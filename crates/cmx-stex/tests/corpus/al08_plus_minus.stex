@@ -1,0 +1,4 @@
+// +-, -+, quadratic formula, sqrt
+let a, b, c in R with a != 0 and b^2 - 4ac >= 0.
+then the solutions of ax^2 + bx + c = 0 are x = (-b +- sqrt(b^2 - 4ac))/(2a).
+if instead we write x = (-b -+ sqrt(b^2 - 4ac))/(2a) we list the same two roots in the other order.

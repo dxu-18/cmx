@@ -1,0 +1,4 @@
+// double counting, handshake lemma
+in any graph the sum of the degrees equals twice the number of edges.
+indeed each edge is counted once at each of its two endpoints.
+hence the number of vertices of odd degree is even.

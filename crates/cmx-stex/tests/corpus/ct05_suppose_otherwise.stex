@@ -1,0 +1,6 @@
+// suppose otherwise
+wts every nonempty finite set of reals has a maximum
+suppose otherwise, and let S be a counterexample of smallest size.
+removing one element gives a smaller set with a maximum m, and then max(m, x) is a maximum of S.
+contradiction
+qed

@@ -1,0 +1,4 @@
+// expect: ok
+let n in Z. assume n is even
+wts n^2 is even
+qed

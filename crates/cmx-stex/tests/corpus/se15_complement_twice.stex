@@ -1,0 +1,3 @@
+// complement of complement, comp
+for every set A in the universe U, (A^c)^c = A.
+also comp(comp(A)) = A.

@@ -1,0 +1,2 @@
+// product rule, derivative of fg
+the derivative of f(x)g(x) with respect to x is f'(x)g(x) + f(x)g'(x).

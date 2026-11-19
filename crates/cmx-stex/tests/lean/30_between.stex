@@ -1,0 +1,4 @@
+// expect: ok
+let x in R. assume x is between 1 and 2
+wts x^2 is between 1 and 4
+qed

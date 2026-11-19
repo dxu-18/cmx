@@ -1,0 +1,7 @@
+// all ways to say there exists
+exists x in Z such that x^20+30 choose 4
+there exists x in R st x^2 = 2.
+there is an integer n with n^2 = 49.
+there are integers a, b s.t. a + b = 10.
+there exist reals x, y where x < y.
+we have x^2 = 4 for some x in Z.

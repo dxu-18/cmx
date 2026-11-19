@@ -1,0 +1,7 @@
+// expect: ok
+let x in R. assume x^2 = 9
+wts (x+3)(x-3) = 0
+$
+x^2 = 9 implies x^2 - 9 = 0 by subtraction, implies (x+3)(x-3) = 0 by factoring
+$
+qed

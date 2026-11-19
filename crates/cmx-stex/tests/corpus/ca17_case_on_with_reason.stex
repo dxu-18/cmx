@@ -1,0 +1,8 @@
+// "case on X, exhaustive b/c R" in one line; remainders written as the user's reason
+let n be an integer. wts n^3 - n is divisible by 3
+case on n mod 3, exhaustive b/c every integer leaves remainder 0, 1, or 2 when divided by 3
+case n mod 3 = 0. then 3 divides n, so 3 divides n^3 - n.
+case n mod 3 = 1. then 3 divides n - 1, so 3 divides n^3 - n = (n - 1)n(n + 1).
+case n mod 3 = 2. then 3 divides n + 1, so 3 divides n^3 - n.
+exhaustive, so 3 divides n^3 - n
+qed

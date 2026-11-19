@@ -1,0 +1,2 @@
+// hockey stick
+sum from i=r to n of (i choose r) = (n + 1) choose (r + 1) by the hockey stick identity.

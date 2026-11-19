@@ -1,0 +1,7 @@
+// let ... be an integer, assume, s.t., wts, qed
+let n be an integer. assume n is even.
+wts n^2 is even
+since n is even, there exists k in Z s.t. n = 2k.
+then n^2 = (2k)^2 = 4k^2 = 2(2k^2).
+so n^2 is even because 2k^2 is an integer.
+qed

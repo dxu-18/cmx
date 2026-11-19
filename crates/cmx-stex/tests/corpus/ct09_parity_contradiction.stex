@@ -1,0 +1,4 @@
+// afsoc even and odd sum
+let m, n in Z with m + n odd. wts m != n
+afsoc m = n. then m + n = 2m is even, contradicting that m + n is odd.
+qed

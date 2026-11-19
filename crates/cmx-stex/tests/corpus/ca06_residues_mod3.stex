@@ -1,0 +1,8 @@
+// residues modulo 3: the auto justification names all residues
+let n in integers. wts 3 divides n^3 - n
+the cases are exhaustive
+case n ≡ 0 mod 3. then n^3 - n ≡ 0 - 0 ≡ 0 mod 3.
+case n ≡ 1 mod 3. then n^3 - n ≡ 1 - 1 ≡ 0 mod 3.
+case n ≡ 2 mod 3. then n^3 - n ≡ 8 - 2 ≡ 0 mod 3.
+in every exhaustive case, n^3 - n ≡ 0 mod 3, i.e. 3 divides n^3 - n.
+qed

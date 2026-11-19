@@ -1,0 +1,5 @@
+// complement, union, intersection, for every x
+let A, B be subsets of a universe U. wts (A union B)^c = A^c intersect B^c
+for every x in U, x in (A union B)^c iff x not in A union B iff x not in A and x not in B.
+this holds iff x in A^c and x in B^c, i.e. x in A^c intersect B^c.
+qed

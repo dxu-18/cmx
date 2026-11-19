@@ -1,0 +1,4 @@
+// exists unique, division algorithm
+let a in Z and b in N with b > 0.
+then there exist unique q, r in Z such that a = bq + r and 0 <= r < b.
+this is the division algorithm.

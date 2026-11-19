@@ -1,0 +1,8 @@
+// expect: ok
+theorem: for all n in N, prod from i=1 to n of 2 = 2^n
+proof
+we proceed by induction on n.
+base case n = 0: prod from i=1 to 0 of 2 = 1
+inductive step: assume prod from i=1 to k of 2 = 2^k.
+then prod from i=1 to k+1 of 2 = 2^k * 2 = 2^(k+1)
+qed

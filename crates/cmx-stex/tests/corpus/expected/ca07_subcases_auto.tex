@@ -1,0 +1,18 @@
+Let $x, y \in \mathbb{Z}$.
+We show that $xy$ is odd if and only if $x$ and $y$ are both odd.
+
+\begin{itemize}
+  \item Case 1: Suppose $x$ is even.
+    Then $xy = x \cdot y$ is even for any $y$.
+  \item Case 2: Suppose $x$ is odd.
+    The following cases are exhaustive.
+    \begin{itemize}
+      \item Subcase 2.1: Suppose $y$ is even.
+        Then $xy$ is even.
+      \item Subcase 2.2: Suppose $y$ is odd.
+        Then $x = 2a + 1$ and $y = 2b + 1$ for some $a, b \in \mathbb{Z}$, so $xy = 2(2ab + a + b) + 1$ is odd.
+    \end{itemize}
+\end{itemize}
+
+In either case, $xy$ is odd exactly when $x$ and $y$ are both odd.
+Hence $xy$ is odd if and only if $x$ and $y$ are both odd, as required. \hfill$\square$

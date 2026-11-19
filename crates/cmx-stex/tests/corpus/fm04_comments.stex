@@ -1,0 +1,4 @@
+// comments everywhere
+let x = 5 // a comment after code
+// a full-line comment
+then x + 1 = 6.

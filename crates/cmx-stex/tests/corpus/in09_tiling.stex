@@ -1,0 +1,9 @@
+// induction prose-heavy, 2^n x 2^n board
+theorem: for every n >= 1, a 2^n by 2^n board with one square removed can be tiled by L-shaped trominoes
+proof
+we proceed by induction on n.
+base case n = 1: a 2 by 2 board with one square removed is itself an L-tromino.
+inductive step: assume the claim for 2^k by 2^k boards. split a 2^(k+1) by 2^(k+1) board into four 2^k by 2^k quadrants.
+place one tromino at the center covering one square of each quadrant without the removed square.
+by the inductive hypothesis each quadrant can now be tiled.
+qed

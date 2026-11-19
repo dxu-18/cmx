@@ -1,0 +1,2 @@
+// epsilon-delta, for every epsilon > 0 there exists delta > 0
+f is continuous at a if for every epsilon > 0 there exists delta > 0 such that for all x, |x - a| < delta implies |f(x) - f(a)| < epsilon.

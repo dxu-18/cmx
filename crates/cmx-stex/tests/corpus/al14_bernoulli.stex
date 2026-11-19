@@ -1,0 +1,9 @@
+// induction with base case 0, >=, for some k
+theorem: for all n in N and every x >= -1, (1 + x)^n >= 1 + nx
+proof
+fix x >= -1. we proceed by induction on n.
+base case n = 0: (1 + x)^0 = 1 = 1 + 0x.
+inductive step: assume (1 + x)^k >= 1 + kx for some k in N.
+then (1 + x)^(k+1) = (1 + x)^k (1 + x) >= (1 + kx)(1 + x) since 1 + x >= 0.
+and (1 + kx)(1 + x) = 1 + (k + 1)x + kx^2 >= 1 + (k+1)x.
+qed

@@ -1,0 +1,6 @@
+// for all x < y, f(x) < f(y)
+define f: R to R via f(x) = 3x + 1.
+wts f is strictly increasing
+let x, y in R with x < y.
+then f(y) - f(x) = 3(y - x) > 0, so f(x) < f(y).
+qed

@@ -1,0 +1,5 @@
+// for all n, gcd(n, n+1) = 1
+for all n in N, gcd(n, n + 1) = 1.
+proof. let d = gcd(n, n + 1). then d | n and d | n + 1, so d | (n + 1) - n = 1.
+thus d = 1.
+qed

@@ -1,0 +1,4 @@
+// for all A, B: A intersect B subseteq A
+for all sets A and B, A intersect B subseteq A and A subseteq A union B.
+proof. if x in A intersect B then in particular x in A. if x in A then x in A union B.
+qed

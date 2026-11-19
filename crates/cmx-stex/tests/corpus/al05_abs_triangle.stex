@@ -1,0 +1,3 @@
+// |x|, triangle inequality, by the triangle inequality
+let x, y in R. then |x + y| <= |x| + |y| by the triangle inequality.
+consequently ||x| - |y|| <= |x - y|.

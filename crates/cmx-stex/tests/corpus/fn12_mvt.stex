@@ -1,0 +1,3 @@
+// by the mean value theorem, there is c in (a, b)
+let f be differentiable on (a, b) and continuous on [a, b].
+by the mean value theorem there is c in (a, b) such that f'(c) = (f(b) - f(a))/(b - a).

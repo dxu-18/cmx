@@ -1,0 +1,3 @@
+// limit as x to 0 of sin(x)/x = 1
+note that limit as x to 0 of sin(x)/x = 1.
+consequently limit as x to 0 of (1 - cos(x))/x = 0.

@@ -1,0 +1,7 @@
+/target
+**/*.rs.bk
+.DS_Store
+
+# bundled TinyTeX, unpacked on first `cmx stex compile` (the .tar.xz archives are tracked)
+/vendor/tinytex/*/
+/vendor/tinytex/.unpack-*

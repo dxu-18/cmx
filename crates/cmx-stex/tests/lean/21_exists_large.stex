@@ -1,0 +1,4 @@
+// expect: ok
+wts exists n in N such that n > 100 and n is even
+choose n = 102.
+qed

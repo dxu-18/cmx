@@ -1,0 +1,6 @@
+// surjective, for every y there exists x
+define f: R to R via f(x) = 2x + 3.
+wts f is surjective
+let y in R be arbitrary. choose x = (y - 3)/2.
+then f(x) = 2((y-3)/2) + 3 = y.
+qed

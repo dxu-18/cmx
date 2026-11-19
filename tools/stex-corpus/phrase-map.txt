@@ -1,0 +1,403 @@
+# Phrase-bank source for cmx-stex: maps every template to the corpus measurements behind its weight.
+# `stex-corpus weights --report REPORT.tsv --map phrase-map.txt > crates/cmx-stex/data/phrases.txt`
+#
+#   [role]
+#   template<TAB>evidence<TAB>flags
+#
+# evidence: `+`-joined report keys `role/phrase` (the row's `mean` rate is used), `=N` for an explicit
+#           rate, or `-` for no corpus evidence (spec phrasings kept for --varied/--random).
+# flags:    `fixed` = the --fixed choice (first line of the role; boosted to ≥ 50% of the role's
+#           top weight: simple wordings stay on top), `same` = same weight as the previous line
+#           (spec ties, e.g. the two `exists` forms in --natural).
+# Slots: {P} {Q} proposition, {X} object, {T} theorem/justification, {A} assumption, {N} case label.
+
+[let]
+Let {X}	define/let	fixed
+[let.arbitrary]
+Let {X}	let/let	fixed
+Fix {X}	let/fix
+Take {X}	let/take
+Consider {X}	let/consider
+Let {X} be arbitrary	=2.4
+Fix an arbitrary {X}	let/fix an arbitrary
+Let {X} be given	let/given
+Pick {X}	let/pick
+[let.more]
+let {X}	-	fixed
+[choose]
+Choose {X}	let/choose	fixed
+Take {X}	let/take
+Pick {X}	let/pick
+Let {X}	=50
+Set {X}	define/set
+Consider {X}	let/consider
+Select {X}	let/select
+[assume]
+Suppose that {P}	assume/suppose that	fixed
+Suppose {P}	assume/suppose
+Assume {P}	assume/assume
+Assume that {P}	assume/assume that
+Now suppose that {P}	assume/now suppose
+Now assume that {P}	assume/now assume
+Let us assume that {P}	assume/let us assume
+We assume that {P}	assume/we assume
+[afsoc]
+Assume for the sake of contradiction that {P}	afsoc/assume for the sake of contradiction	fixed
+Suppose to the contrary that {P}	afsoc/suppose to the contrary
+Suppose for contradiction that {P}	afsoc/suppose for contradiction
+Suppose, for the sake of contradiction, that {P}	afsoc/suppose for the sake of contradiction
+For the sake of contradiction, suppose that {P}	afsoc/for the sake of contradiction
+Suppose, by way of contradiction, that {P}	afsoc/by way of contradiction
+Assume for contradiction that {P}	afsoc/assume for contradiction
+Suppose, on the contrary, that {P}	afsoc/suppose on the contrary
+Assume to the contrary that {P}	afsoc/assume to the contrary
+Assume, toward a contradiction, that {P}	afsoc/assume toward a contradiction
+Seeking a contradiction, suppose that {P}	afsoc/seeking a contradiction
+Arguing by contradiction, suppose that {P}	afsoc/arguing by contradiction
+[contradiction]
+This is a contradiction	contradiction/this is a contradiction+contradiction/a contradiction	fixed
+This contradicts our assumption that {A}	contradiction/contradicts our assumption+contradiction/this contradicts
+This contradicts the assumption that {A}	contradiction/contradicts the assumption
+This is impossible	contradiction/this is impossible
+We have reached a contradiction	=1
+But this is absurd	contradiction/which is absurd
+This cannot happen	contradiction/this cannot happen
+[contradiction.with]
+This contradicts {P}	contradiction/this contradicts	fixed
+This is a contradiction with {P}	=2
+This is impossible, since {P}	contradiction/this is impossible
+But {P}, which is absurd	contradiction/which is absurd
+This contradicts the fact that {P}	=3
+[contradiction.close]
+Hence our assumption was false	contradiction.close/hence our assumption	fixed
+So our assumption must be false	contradiction.close/so our assumption
+This contradiction proves the claim	contradiction.close/this contradiction
+[goal]
+We show that {P}	goal/we show that	fixed
+We claim that {P}	goal/we claim that
+We prove that {P}	goal/we prove+goal/we prove that
+We have to show that {P}	goal/we have to show
+We will prove that {P}	goal/we will prove
+We will show that {P}	goal/we will show
+We must show that {P}	goal/we must show
+We need to show that {P}	goal/we need to show
+We want to show that {P}	goal/we want to show
+Let us show that {P}	goal/let us show
+Let us prove that {P}	goal/let us prove
+We wish to show that {P}	goal/we wish to show
+Our goal is to show that {P}	goal/our goal is to show
+We wish to prove that {P}	goal/we wish to prove
+We aim to show that {P}	goal/we aim to show
+It is required to show that {P}	goal/it is required to show
+[qed]
+Hence {P}, as required	qed/as required	fixed
+Hence {P}, as desired	qed/as desired
+Therefore {P}, as desired	=12
+Thus {P}, as required	=6
+This proves that {P}	qed/this proves that+qed/this proves the
+Hence {P}, and we are done	qed/and we are done
+We conclude that {P}, as desired	=2
+Thus {P}, as claimed	qed/as claimed
+[qed.bare]
+This completes the proof	qed/this completes the proof+qed/which completes the proof	fixed
+We are done	qed/we are done
+This finishes the proof	qed/this finishes the proof
+The proof is complete	qed/the proof is complete
+This concludes the proof	qed/this concludes the proof
+[then]
+Then {P}	then/then	fixed
+Hence {P}	then/hence
+Thus {P}	then/thus
+So {P}	then/so
+Therefore {P}	then/therefore
+Consequently, {P}	then/consequently
+It follows that {P}	then/it follows that
+This implies that {P}	then/this implies+then/this implies that
+We conclude that {P}	then/we conclude that
+This gives {P}	then/this gives
+This means that {P}	then/this means that
+We obtain {P}	then/we obtain
+This shows that {P}	then/this shows that
+We get {P}	then/we get
+Whence {P}	then/whence
+We find that {P}	then/we find
+We see that {P}	then/we see that
+This yields {P}	then/this yields
+We deduce that {P}	then/we deduce that
+Accordingly, {P}	then/accordingly
+As a result, {P}	then/as a result
+[implies]
+{P} implies {Q}	implies/implies+implies/implies that	fixed
+if {P}, then {Q}	implies/if
+{P} only if {Q}	implies/only if
+{Q} follows from {P}	implies/follows from
+{P} means that {Q}	implies/means that
+{P} yields {Q}	implies/yields
+{Q} whenever {P}	implies/whenever
+{P} forces {Q}	implies/forces
+{P} guarantees {Q}	implies/guarantees
+{P} ensures {Q}	implies/ensures
+{P} leads to {Q}	implies/leads to
+{Q} is a consequence of {P}	implies/is a consequence of
+{P} entails {Q}	implies/entails
+{Q} provided that {P}	implies/provided that
+[implies.if]
+if {P}, then {Q}	implies/if	fixed
+{P} implies {Q}	implies/implies+implies/implies that
+{Q} whenever {P}	implies/whenever
+{Q} if {P}	=10
+{Q} provided that {P}	implies/provided that
+[iff]
+{P} if and only if {Q}	iff/if and only if	fixed
+{P} iff {Q}	iff/iff
+{P} is equivalent to {Q}	iff/is equivalent to
+{P} exactly when {Q}	iff/exactly when
+{P} precisely when {Q}	iff/precisely when
+{P} just in case {Q}	iff/just in case
+[exists]
+there exists {X} such that {P}	exists/there exists	fixed
+we have {P} for some {X}	-	same
+there is {X} such that {P}	exists/there is
+{P} for some {X}	=60
+there are {X} such that {P}	exists/there are
+we can find {X} such that {P}	exists/we can find
+there exist {X} such that {P}	exists/there exist
+we may choose {X} such that {P}	exists/we may choose
+there must be {X} such that {P}	exists/there must be
+one can find {X} with {P}	exists/one can find
+[exists.inner]
+there exists {X} such that {P}	exists/there exists	fixed
+there is {X} such that {P}	exists/there is
+{P} for some {X}	exists/for some
+there are {X} such that {P}	exists/there are
+we can find {X} such that {P}	exists/we can find
+[exists.bare]
+there exists {X}	exists/there exists	fixed
+there is {X}	exists/there is
+there are {X}	exists/there are
+we can find {X}	exists/we can find
+[exists.unique]
+there exists a unique {X} such that {P}	exists.unique/there exists a unique	fixed
+there is a unique {X} such that {P}	exists.unique/there is a unique
+there is exactly one {X} such that {P}	exists.unique/there is exactly one
+there is one and only one {X} with {P}	-
+[exists.unique.bare]
+there exists a unique {X}	exists.unique/there exists a unique	fixed
+there is a unique {X}	exists.unique/there is a unique
+there is exactly one {X}	exists.unique/there is exactly one
+[exists.none]
+there is no {X} such that {P}	exists.none/there is no	fixed
+there are no {X} such that {P}	exists.none/there are no
+there does not exist {X} such that {P}	exists.none/there does not exist
+no {X} satisfies {P}	-
+[exists.none.bare]
+there is no {X}	exists.none/there is no	fixed
+there does not exist {X}	exists.none/there does not exist
+[forall]
+for every {X}, {P}	forall/for every	fixed
+we have {P} for all {X}	-	same
+for all {X}, {P}	forall/for all
+for any {X}, {P}	forall/for any
+for each {X}, {P}	forall/for each
+{P} for all {X}	=60
+{P} for every {X}	=20
+given any {X}, {P}	forall/given any
+for arbitrary {X}, {P}	forall/for arbitrary
+[forall.inner]
+for every {X}, {P}	forall/for every	fixed
+for all {X}, {P}	forall/for all
+{P} for all {X}	=60
+for any {X}, {P}	forall/for any
+for each {X}, {P}	forall/for each
+[because]
+{P} because {Q}	because/because	fixed
+{P} since {Q}	because/since
+{P}, as {Q}	because/, as
+{P} due to the fact that {Q}	because/due to
+{P}, in view of the fact that {Q}	because/in view of
+{P}, given that {Q}	because/given that
+[since]
+{P} since {Q}	because/since	fixed
+{P} because {Q}	because/because
+{P}, as {Q}	because/, as
+{P}, given that {Q}	because/given that
+[because.lead]
+Since {Q}, {P}	because.lead/since	fixed
+As {Q}, {P}	because.lead/as
+Because {Q}, {P}	because.lead/because
+In view of the fact that {Q}, {P}	because.lead/in view of
+Given that {Q}, {P}	because.lead/given that
+[by.before]
+By {T}, {P}	by.before/by	fixed
+Using {T}, we get {P}	by.before/using
+Applying {T}, we obtain {P}	by.before/applying
+From {T}, we get {P}	by.before/from
+It follows from {T} that {P}	by.before/it follows from
+According to {T}, {P}	by.before/according to
+In view of {T}, {P}	by.before/in view of
+[by.after]
+{P} by {T}	by.after/by	fixed
+we have {P} by {T}	statement/we have
+{P}, using {T}	by.after/using
+{P} by virtue of {T}	by.after/by virtue of
+[by.text.before]
+By {T}, {P}	by.before/by	fixed
+Using {T}, {P}	by.before/using
+[by.text.after]
+{P} by {T}	by.after/by	fixed
+{P}, by {T}	=5
+{P}, using {T}	by.after/using
+[ie]
+That is, {P}	ie/that is	fixed
+In other words, {P}	ie/in other words
+Namely, {P}	ie/namely
+Equivalently, {P}	ie/equivalently
+Explicitly, {P}	ie/explicitly
+[ie.mid]
+{P}, that is, {Q}	ie.mid/that is	fixed
+{P}; in other words, {Q}	ie.mid/in other words
+{P}, namely {Q}	ie.mid/namely
+{P}, i.e., {Q}	=10
+[note]
+Note that {P}	note/note that	fixed
+Observe that {P}	note/observe that
+Recall that {P}	note/recall that
+Notice that {P}	note/notice that
+We note that {P}	note/we note that
+We observe that {P}	note/we observe that
+It is worth noting that {P}	note/it is worth noting
+[wlog]
+Without loss of generality, assume that {P}	wlog/without loss of generality	fixed
+We may assume that {P}	wlog/we may assume
+We can assume that {P}	wlog/we can assume
+By symmetry, we may assume that {P}	wlog/by symmetry
+We may and do assume that {P}	wlog/we may and do assume
+After relabeling, we may assume that {P}	wlog/after relabeling
+[define]
+Define {X}	define/define	fixed
+Let {X}	define/let
+Set {X}	define/set
+Write {X}	define/write
+Put {X}	define/put
+We define {X}	define/we define
+[define.assign]
+Let {X}	define/let	fixed
+Set {X}	define/set
+Define {X}	define/define
+Write {X}	define/write
+Put {X}	define/put
+[define.via]
+Define {X} via {P}	-	fixed
+Define {X} by {P}	define/define
+Let {X} be given by {P}	define/let
+Define {X} as follows: {P}	=3
+[case]
+Case {N}: Suppose {P}	case/case	fixed
+Case {N}: Assume {P}	=5
+Case {N}: {P}	=5
+[case.bare]
+Case {N}:	-	fixed
+[cases.close]
+In either case, {P}	cases.close/in either case	fixed
+In both cases, {P}	cases.close/in both cases
+In every case, {P}	cases.close/in every case
+In all cases, {P}	cases.close/in all cases
+In any case, {P}	cases.close/in any case
+Either way, {P}	cases.close/either way
+# Case analyses (STEX-DESIGN §14). No corpus probe yet: explicit rates, simplest first.
+# Only what the user wrote: "case on X" announces the analysis; "exhaustive" states that the cases
+# are exhaustive, with the user's own reason {R} (body of a "since" clause) if one was given.
+# --fixed doesn't use these banks for reasons: it keeps the user's word and order.
+[cases.on]
+We proceed by case analysis on {X}	=10	fixed
+We proceed by cases on {X}	=6
+Proceed by casing on {X}	=3
+We case on {X} in the following	=3
+We split into cases on {X}	=3
+[cases.on.bare]
+We proceed by case analysis	=10	fixed
+We proceed by cases	=6
+We split into cases	=3
+[cases.exhaustive.open]
+The following cases are exhaustive, since {R}	=10	fixed
+Since {R}, the following cases are exhaustive	=8
+We distinguish the following cases, which are exhaustive since {R}	=3
+The cases below cover every possibility, since {R}	=2
+[cases.exhaustive.open.by]
+The following cases are exhaustive by {T}	=10	fixed
+By {T}, the following cases are exhaustive	=5
+[cases.exhaustive.open.bare]
+The following cases are exhaustive	=10	fixed
+The cases below are exhaustive	=4
+The following cases cover every possibility	=3
+[cases.exhaustive]
+These cases are exhaustive, since {R}	=10	fixed
+Since {R}, these cases are exhaustive	=8
+The cases above are exhaustive, since {R}	=4
+These cases cover every possibility, since {R}	=2
+[cases.exhaustive.by]
+These cases are exhaustive by {T}	=10	fixed
+By {T}, these cases are exhaustive	=5
+[cases.exhaustive.bare]
+These cases are exhaustive	=10	fixed
+The cases above are exhaustive	=4
+The cases above cover every possibility	=3
+# right after "These cases are exhaustive, …": no phrasing that says it again
+[cases.exhaustive.close]
+In all exhaustive cases, {P}	=10	fixed
+In every exhaustive case, {P}	=6
+Thus, in all exhaustive cases, {P}	=4
+In each of these cases, {P}	=3
+Hence, in every case, {P}	=2
+# the user's closer ("in all exhaustive cases, P", "since the cases are exhaustive, P") in the
+# varied modes
+[cases.exhaustive.close.since]
+In all exhaustive cases, {P}	=10	fixed
+In every exhaustive case, {P}	=6
+Since the cases are exhaustive, {P}	=6
+Thus, in all exhaustive cases, {P}	=4
+As the cases exhaust all possibilities, {P}	=3
+In each of these exhaustive cases, {P}	=2
+Because the cases cover every possibility, {P}	=2
+[statement]
+{P}	statement/math	fixed
+We have {P}	statement/we have
+Note that {P}	note/note that
+We get {P}	statement/we get
+[and]
+{P} and {Q}	=100	fixed
+both {P} and {Q}	=5
+[or]
+{P} or {Q}	=100	fixed
+either {P} or {Q}	=10
+[xor]
+either {P} or {Q}, but not both	-	fixed
+exactly one of {P} and {Q} holds	-
+[nand]
+not both {P} and {Q}	-	fixed
+it is not the case that both {P} and {Q}	-
+[nor]
+neither {P} nor {Q}	-	fixed
+[not]
+it is not the case that {P}	-	fixed
+{P} does not hold	-
+{P} fails	-
+[with]
+{X} with {P}	-	fixed
+[suchthat]
+{X} such that {P}	-	fixed
+[induction]
+We proceed by induction on {X}	induction/we proceed by induction	fixed
+We use induction on {X}	induction/we use induction
+We argue by induction on {X}	=1
+We induct on {X}	=1
+[induction.strong]
+We proceed by strong induction on {X}	-	fixed
+We use strong induction on {X}	-
+We argue by strong induction on {X}	-
+[subcase]
+Subcase {N}: Suppose {P}	-	fixed
+Subcase {N}: Assume {P}	-
+Subcase {N}: {P}	-
+[subcase.bare]
+Subcase {N}:	-	fixed

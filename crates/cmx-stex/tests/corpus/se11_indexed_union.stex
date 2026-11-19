@@ -1,0 +1,2 @@
+// big union over i, for some i
+let A_1, A_2, ... be sets. then x in union from i=1 to infinity of A_i iff x in A_i for some i.

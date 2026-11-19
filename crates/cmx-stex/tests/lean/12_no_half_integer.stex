@@ -1,0 +1,6 @@
+// expect: ok
+wts there is no x in Z such that 2x = 1
+afsoc exists x in Z such that 2x = 1
+then 2x is even and 1 is odd
+contradiction
+qed

@@ -1,0 +1,5 @@
+// == with pmod, % as bmod, 5% percent
+let x in Z. assume x == 3 mod 7.
+then x^2 == 9 == 2 mod 7.
+also 100 % 7 = 2, so 100 == 2 mod 7.
+roughly 5% of the residues behave this way.

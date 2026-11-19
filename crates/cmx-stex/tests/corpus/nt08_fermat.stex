@@ -1,0 +1,5 @@
+// by Fermat's little theorem, for every, mod
+let p be a prime and let a in Z with p not dividing a.
+then a^(p-1) == 1 mod p by Fermat's little theorem.
+so for every integer k >= 0, a^(k(p-1)) == 1 mod p.
+in particular a^(2p - 2) == 1 mod p.

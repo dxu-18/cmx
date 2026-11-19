@@ -1,0 +1,3 @@
+// periodic with period, sin, cos, pi
+the function sin is periodic with period 2pi, i.e. sin(x + 2pi) = sin(x) for every x in R.
+moreover sin(x)^2 + cos(x)^2 = 1.

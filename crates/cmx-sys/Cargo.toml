@@ -1,0 +1,6 @@
+[package]
+name = "cmx-sys"
+description = "Hand-written libc FFI for cmx (termios, pty, poll, signals). No external crates."
+version.workspace = true
+edition.workspace = true
+publish.workspace = true

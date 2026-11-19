@@ -1,0 +1,4 @@
+// by the intermediate value theorem
+let f: [0, 1] to [0, 1] be continuous. define g(x) = f(x) - x.
+then g(0) >= 0 and g(1) <= 0, so by the intermediate value theorem there exists c in [0, 1] with g(c) = 0.
+i.e. f(c) = c.

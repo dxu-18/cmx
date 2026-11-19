@@ -1,0 +1,5 @@
+// expect: ok
+let x, y in R. wts x^2 + y^2 >= 2xy
+note that (x - y)^2 >= 0
+then x^2 - 2xy + y^2 >= 0, so x^2 + y^2 >= 2xy
+qed

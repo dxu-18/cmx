@@ -1,0 +1,2 @@
+// Taylor series of e^x
+for every x in R, e^x = sum from n=0 to infinity of x^n/n!.

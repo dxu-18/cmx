@@ -1,0 +1,9 @@
+[package]
+name = "cmx-vt"
+description = "VT100/xterm terminal emulator used for embedded terminal panes."
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+[dependencies]
+cmx-tui = { path = "../cmx-tui" }

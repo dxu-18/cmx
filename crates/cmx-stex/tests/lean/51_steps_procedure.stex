@@ -1,0 +1,7 @@
+// expect: ok
+we count the 4-digit PINs with no repeated digit.
+step 1: choose the first digit in 10 ways.
+step 2: choose the second digit in 9 ways.
+step 3: choose the third digit in 8 ways.
+step 4: choose the fourth digit in 7 ways.
+in total, there are 10 * 9 * 8 * 7 = 5040 such PINs by the multiplication principle.
